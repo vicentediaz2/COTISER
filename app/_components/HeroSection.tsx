@@ -41,10 +41,10 @@ export function HeroSection({ metrics }: HeroSectionProps) {
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <Link
-              href="/demo"
+              href="/registro"
               className="inline-flex min-h-12 items-center justify-center rounded-lg bg-white px-6 py-3 text-base font-semibold text-blue-700 shadow-sm transition hover:bg-blue-50"
             >
-              Empezar ahora
+              Crear mi cuenta
             </Link>
             <a
               href="#beneficios"

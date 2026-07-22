@@ -20,12 +20,10 @@ export function LandingHeader() {
           Contacto
         </Link>
       </nav>
-      <Link
-        href="/demo"
-        className="hidden rounded-lg bg-white px-4 py-2 text-sm font-semibold text-blue-700 shadow-sm transition hover:bg-blue-50 md:inline-flex"
-      >
-        Solicitar demo
-      </Link>
+      <div className="flex items-center gap-2">
+        <Link href="/iniciar-sesion" className="hidden px-3 py-2 text-sm font-semibold text-white transition hover:text-blue-100 sm:inline-flex">Ingresar</Link>
+        <Link href="/registro" className="rounded-lg bg-white px-4 py-2 text-sm font-semibold text-blue-700 shadow-sm transition hover:bg-blue-50">Crear cuenta</Link>
+      </div>
     </header>
   );
 }
