@@ -2,7 +2,7 @@ create extension if not exists pgcrypto;
 
 do $$
 begin
-  create type public.estado_cotizacion as enum ('pendiente', 'enviada', 'aceptada', 'rechazada');
+  create type public.estado_cotizacion as enum ('pendiente', 'enviada', 'aprobada', 'rechazada');
 exception
   when duplicate_object then null;
 end $$;
