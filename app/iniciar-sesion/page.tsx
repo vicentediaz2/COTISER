@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AuthShell } from "@/app/_components/AuthShell";
 import { FormMessage } from "@/app/_components/FormMessage";
+import { PasswordField } from "@/app/_components/PasswordField";
 import { signIn } from "@/app/auth/actions";
 import { hasSupabaseEnv } from "@/lib/supabase/env";
 
@@ -22,14 +23,11 @@ export default async function LoginPage({ searchParams }: Props) {
           Correo electrónico
           <input name="email" type="email" required autoComplete="email" className="form-control" placeholder="tu@empresa.cl" />
         </label>
-        <label className="grid gap-2 text-sm font-medium text-slate-700">
-          Contraseña
-          <input name="password" type="password" required autoComplete="current-password" className="form-control" placeholder="Tu contraseña" />
-        </label>
+        <PasswordField name="password" label="Contraseña" autoComplete="current-password" placeholder="Tu contraseña" />
+        <p className="text-right text-sm"><Link className="font-semibold text-blue-700 hover:underline" href="/recuperar-contrasena">¿Olvidaste tu contraseña?</Link></p>
         <button disabled={!configured} className="primary-button w-full disabled:cursor-not-allowed disabled:opacity-50">Ingresar</button>
         <p className="text-center text-sm text-slate-600">¿Aún no tienes cuenta? <Link className="font-semibold text-blue-700 hover:underline" href="/registro">Regístrate</Link></p>
       </form>
     </AuthShell>
   );
 }
-
