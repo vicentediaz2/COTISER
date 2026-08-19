@@ -1,27 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300..900&display=swap");
 @import "tailwindcss";
+
+@theme {
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-marquee-slow: marquee 55s linear infinite;
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000000;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: Arial, Helvetica, sans-serif;
+  --font-sans: "Red Hat Display", Arial, Helvetica, sans-serif;
+
+  /* Paleta de marca */
+  --color-blue-50: #a6d8fd;
+  --color-blue-100: #d9efff;
+  --color-blue-200: #c1e5fc;
+  --color-blue-300: #a6d8fd;
+  --color-blue-400: #6fb8ea;
+  --color-blue-500: #477fc2;
+  --color-blue-600: #364ca0;
+  --color-blue-700: #2e3c8e;
+  --color-blue-800: #253272;
+  --color-blue-900: #202b68;
+  --color-blue-950: #192251;
+
+  --color-emerald-50: #fbe9ef;
+  --color-emerald-200: #e9aebe;
+  --color-emerald-600: #ad234d;
+  --color-emerald-700: #8e1b3d;
+
+  --color-slate-50: #ffffff;
+  --color-slate-100: #f5f5f5;
+  --color-slate-200: #e5e5e5;
+  --color-slate-500: #555555;
+  --color-slate-600: #333333;
+  --color-slate-700: #1f1f1f;
+  --color-slate-800: #111111;
+  --color-slate-900: #080808;
+  --color-slate-950: #000000;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #000000;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Red Hat Display", Arial, Helvetica, sans-serif;
+}
+
+.carousel-viewport {
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  touch-action: pan-y;
+}
+
+.carousel-viewport.is-dragging {
+  scroll-behavior: auto;
+  scroll-snap-type: none;
+}
+
+.carousel-viewport::-webkit-scrollbar {
+  display: none;
 }
 
 @layer components {

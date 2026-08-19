@@ -1,15 +1,20 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export function Brand({ dark = false }: { dark?: boolean }) {
   return (
-    <Link href="/" className="flex items-center gap-3" aria-label="CotizaPro">
-      <span className={`grid size-10 place-items-center rounded-lg text-sm font-black shadow-sm ${dark ? "bg-blue-700 text-white" : "bg-white text-blue-700"}`}>
-        CPRO
-      </span>
-      <span className={dark ? "text-lg font-semibold text-blue-950" : "text-lg font-semibold text-white"}>
-        COTIZAPRO
-      </span>
-    </Link>
+      <Link href="/" className="flex items-center gap-3" aria-label="Cotiser">
+        <span className="grid size-14 place-items-center rounded-lg p-1 ">
+          <Image
+            src="/elementos-graficos/isotipo-azul.svg"
+            alt=""
+            width={60}
+            height={60}
+            className=""
+          />
+        </span>
+        <span className="text-xl font-black text-emerald-600">COTISER</span>
+      </Link>
   );
 }
 

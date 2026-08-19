@@ -1,6 +1,6 @@
-# CotizaPro
+# Cotiser
 
-CotizaPro es una aplicacion web para gestionar clientes, servicios y cotizaciones comerciales. Esta pensada como una primera iteracion funcional, libre y desplegable, construida con Next.js y Supabase.
+Cotiser es una aplicacion web para gestionar clientes, servicios y cotizaciones comerciales. Esta pensada como una primera iteracion funcional, libre y desplegable, construida con Next.js y Supabase.
 
 El objetivo del proyecto es servir como base abierta para aprender, adaptar o extender un panel simple de cotizaciones con autenticacion, base de datos relacional y reglas RLS por usuario.
 

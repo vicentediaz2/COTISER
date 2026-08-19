@@ -10,11 +10,11 @@ export function ProcessSection({ steps }: ProcessSectionProps) {
       id="proceso"
       className="border-y border-blue-100 bg-blue-50 px-6 py-20 lg:px-8"
     >
-      <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+      <div className="mx-auto  grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <SectionIntro
-          eyebrow="Proceso"
-          title="De lista de precios a propuesta enviada en minutos."
-          description="Presenta un flujo directo para equipos que necesitan responder rapido sin perder precision en montos ni condiciones."
+          tone="sky"
+          title="Crea una cotización en 3 pasos."
+          description="Con 3 simples pasos puedes crear todas las cotizaciones que nesesitas reutilizando la informacion clave."
         />
 
         <div className="grid gap-4">

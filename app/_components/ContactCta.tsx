@@ -7,7 +7,6 @@ export function ContactCta() {
       <div className="mx-auto grid max-w-7xl gap-8 rounded-lg border border-blue-100 bg-blue-700 p-8 text-white shadow-xl shadow-blue-900/15 md:grid-cols-[1fr_auto] md:items-center lg:p-10">
         <SectionIntro
           tone="blue"
-          eyebrow="Empieza hoy"
           title="Crea tu primera cotización profesional."
           description="Regístrate para centralizar clientes, ítems, impuestos y totales en un solo lugar."
         />

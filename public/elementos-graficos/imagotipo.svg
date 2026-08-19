@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_6" data-name="Capa 6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-2 {
+        fill: #a6d8fd;
+      }
+
+      .cls-3 {
+        letter-spacing: -.04em;
+      }
+
+      .cls-4 {
+        fill: #2e3c8e;
+      }
+
+      .cls-5 {
+        fill: #ad234d;
+        font-family: RedHatDisplay-Black, 'Red Hat Display';
+        font-size: 232.08px;
+        font-variation-settings: 'wght' 900;
+        font-weight: 800;
+      }
+    </style>
+  </defs>
+  <path class="cls-4" d="M743.01,169.66v357.71c0,2.57-.55,5.08-1.61,7.36h-126.58v126.6c-2.29,1.05-4.79,1.6-7.35,1.6h-230.25c-9.8,0-17.75-7.95-17.75-17.75V169.66c0-9.8,7.95-17.75,17.75-17.75h348.04c9.8,0,17.75,7.95,17.75,17.75Z"/>
+  <path class="cls-2" d="M739.82,533.39c2.83,0,4.25,3.42,2.25,5.42h0s-55.44,55.46-55.44,55.46l-67.72,67.72-.02.02c-2,2-5.42.58-5.42-2.25v-123.19c0-1.75,1.42-3.18,3.18-3.18h123.17Z"/>
+  <rect class="cls-2" x="392.06" y="246.13" width="329.78" height="31.94" rx="4.27" ry="4.27"/>
+  <rect class="cls-2" x="391.39" y="326.02" width="260.72" height="31.83" rx="4.25" ry="4.25"/>
+  <text class="cls-5" transform="translate(22.98 887.74)"><tspan class="cls-1" x="0" y="0">C</tspan><tspan class="cls-3" x="162.68" y="0">O</tspan><tspan x="342.31" y="0">TISER</tspan></text>
+</svg>
