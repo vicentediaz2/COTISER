@@ -14,6 +14,20 @@ export const dynamic = "force-dynamic";
 
 type Props = { searchParams: Promise<{ error?: string; mensaje?: string }> };
 
+type OrganizationData = {
+  nombre?: string | null;
+  direccion?: string | null;
+  eslogan?: string | null;
+  telefono?: string | null;
+  correo?: string | null;
+  direccion_web?: string | null;
+  logo?: string | null;
+};
+
+function fieldValue(value: string | null | undefined) {
+  return value?.trim() || undefined;
+}
+
 function formatDate(value: string | null | undefined) {
   return value ? new Intl.DateTimeFormat("es-CL", { dateStyle: "long", timeStyle: "short" }).format(new Date(value)) : "Sin información";
 }
@@ -30,12 +44,12 @@ export default async function ProfilePage({ searchParams }: Props) {
 
   const { data: profile, error: profileError } = await supabase
     .from("usuario")
-    .select("organizacion, logo")
+    .select("organizacion(id_organizacion, nombre, direccion, eslogan, telefono, correo, direccion_web, logo)")
     .eq("id_usuario", user.id)
     .maybeSingle();
   const params = await searchParams;
-  const currentOrganization = profile?.organizacion?.trim() || undefined;
-  const logoPath = profile?.logo?.trim() || undefined;
+  const organization = profile?.organizacion as OrganizationData | null;
+  const logoPath = organization?.logo?.trim() || undefined;
   const logoUrl = logoPath ? `${getSupabaseEnv().url}/storage/v1/object/public/logos/${logoPath}` : null;
 
   return (
@@ -46,7 +60,39 @@ export default async function ProfilePage({ searchParams }: Props) {
         <FormMessage error={params.error ?? (profileError ? "No se pudo cargar la organización." : undefined)} message={params.mensaje} />
         <form action={updateProfile} className="mt-6 space-y-6 rounded-xl border border-blue-100 bg-white p-6 shadow-sm sm:p-8">
           <section className="space-y-5"><div><h2 className="text-lg font-semibold">Datos de acceso</h2></div><div className="grid gap-5 sm:grid-cols-2"><label className="grid gap-2 text-sm font-medium text-slate-700">Usuario<input name="username" required defaultValue={user.user_metadata?.username ?? user.user_metadata?.name ?? ""} className="form-control" autoComplete="username" /></label><label className="grid gap-2 text-sm font-medium text-slate-700">Correo electrónico<input name="email" type="email" required defaultValue={user.email ?? ""} className="form-control" autoComplete="email" /></label><PasswordChange /></div></section>
-          <section className="border-t border-blue-100 pt-6"><h2 className="text-lg font-semibold">Organización</h2><label className="mt-4 grid gap-2 text-sm font-medium text-slate-700">Nombre de la organización<input name="organizacion" defaultValue={currentOrganization} className="form-control" placeholder="Nombre de tu empresa" /></label><LogoUpload currentUrl={logoUrl} /></section>
+          <section className="space-y-5 border-t border-blue-100 pt-6">
+            <div>
+              <h2 className="text-lg font-semibold">Organización</h2>
+              <p className="mt-1 text-sm text-slate-600">Información pública de tu empresa para cotizaciones y documentos.</p>
+            </div>
+            <div className="grid gap-5 sm:grid-cols-2">
+              <label className="grid gap-2 text-sm font-medium text-slate-700 sm:col-span-2">
+                Nombre de la organización
+                <input name="organizacion" defaultValue={fieldValue(organization?.nombre)} className="form-control" placeholder="Nombre de tu empresa" />
+              </label>
+              <label className="grid gap-2 text-sm font-medium text-slate-700 sm:col-span-2">
+                Eslogan
+                <input name="eslogan" defaultValue={fieldValue(organization?.eslogan)} className="form-control" placeholder="Tu propuesta de valor" />
+              </label>
+              <label className="grid gap-2 text-sm font-medium text-slate-700 sm:col-span-2">
+                Dirección
+                <input name="direccion" defaultValue={fieldValue(organization?.direccion)} className="form-control" placeholder="Calle, número, comuna, ciudad" />
+              </label>
+              <label className="grid gap-2 text-sm font-medium text-slate-700">
+                Teléfono
+                <input name="telefono" type="tel" defaultValue={fieldValue(organization?.telefono)} className="form-control" placeholder="+56 9 1234 5678" autoComplete="tel" />
+              </label>
+              <label className="grid gap-2 text-sm font-medium text-slate-700">
+                Correo de contacto
+                <input name="correo" type="email" defaultValue={fieldValue(organization?.correo)} className="form-control" placeholder="contacto@empresa.cl" autoComplete="email" />
+              </label>
+              <label className="grid gap-2 text-sm font-medium text-slate-700 sm:col-span-2">
+                Sitio web
+                <input name="direccion_web" type="url" defaultValue={fieldValue(organization?.direccion_web)} className="form-control" placeholder="https://www.empresa.cl" />
+              </label>
+            </div>
+            <LogoUpload currentUrl={logoUrl} />
+          </section>
           <section className="grid gap-4 border-t border-blue-100 pt-6 sm:grid-cols-2"><div className="rounded-lg bg-slate-50 p-4"><p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Cuenta creada</p><p className="mt-1 text-sm text-slate-700">{formatDate(user.created_at)}</p></div><div className="rounded-lg bg-slate-50 p-4"><p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Último inicio de sesión</p><p className="mt-1 text-sm text-slate-700">{formatDate(user.last_sign_in_at)}</p></div></section>
           <div className="flex flex-col-reverse gap-3 sm:flex-row sm:justify-end"><Link href="/panel" className="rounded-lg border border-blue-100 px-6 py-3 text-center text-base font-semibold text-blue-700 hover:bg-blue-50">Cancelar</Link><button className="primary-button">Guardar cambios</button></div>
         </form>

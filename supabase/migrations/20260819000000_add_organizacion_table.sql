@@ -1,3 +1,6 @@
+-- Normaliza los datos de organización en una tabla dedicada.
+-- usuario.organizacion, usuario.logo y usuario.telefono pasan a organizacion.
+
 create table public.organizacion (
   id_organizacion uuid primary key default gen_random_uuid(),
   nombre text not null,
@@ -5,35 +8,43 @@ create table public.organizacion (
   eslogan text,
   telefono text,
   correo text,
-  direccion_web text
+  direccion_web text,
+  logo text
 );
 
 alter table public.usuario
   add column id_organizacion uuid references public.organizacion(id_organizacion) on delete set null;
 
+-- Migra datos existentes: una organización por usuario con nombre y/o logo previos.
 do $$
 declare
   r record;
   new_org_id uuid;
 begin
   for r in
-    select id_usuario, organizacion
+    select id_usuario, organizacion, logo
     from public.usuario
-    where organizacion is not null
-      and btrim(organizacion) <> ''
   loop
-    insert into public.organizacion (nombre)
-    values (btrim(r.organizacion))
-    returning id_organizacion into new_org_id;
+    if (r.organizacion is not null and btrim(r.organizacion) <> '')
+      or (r.logo is not null and btrim(r.logo) <> '') then
+      insert into public.organizacion (nombre, logo)
+      values (
+        coalesce(nullif(btrim(r.organizacion), ''), 'Mi organización'),
+        nullif(btrim(r.logo), '')
+      )
+      returning id_organizacion into new_org_id;
 
-    update public.usuario
-    set id_organizacion = new_org_id
-    where id_usuario = r.id_usuario;
+      update public.usuario
+      set id_organizacion = new_org_id
+      where id_usuario = r.id_usuario;
+    end if;
   end loop;
 end $$;
 
 alter table public.usuario
-  drop column organizacion;
+  drop column organizacion,
+  drop column logo,
+  drop column telefono;
 
 create index usuario_organizacion_idx on public.usuario(id_organizacion);
 
@@ -74,3 +85,33 @@ with check (
 );
 
 grant select, insert, update on public.organizacion to authenticated;
+
+-- Marca como vencidas las cotizaciones enviadas con más de 20 días.
+alter type public.estado_cotizacion
+  add value if not exists 'vencida';
+
+create or replace function public.actualizar_cotizaciones_vencidas()
+returns void
+language plpgsql
+as $$
+begin
+  -- Se ejecuta dinámicamente porque el valor enum se agrega en esta misma migración.
+  execute $sql$
+    update public.cotizacion
+    set estado = 'vencida'
+    where estado = 'enviada'
+      and fecha < (current_date - interval '20 days')
+  $sql$;
+end;
+$$;
+
+create extension if not exists pg_cron;
+
+select cron.schedule(
+  'vencer-cotizaciones-diario',
+  '0 0 * * *',
+  'select public.actualizar_cotizaciones_vencidas();'
+);
+
+create index idx_cotizacion_estado_fecha
+  on public.cotizacion (estado, fecha);

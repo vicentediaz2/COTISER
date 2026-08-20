@@ -13,8 +13,24 @@ const LOGO_MIME_EXTENSIONS = new Map<string, string>([
   ["image/gif", "gif"],
 ]);
 
+type OrganizationProfile = {
+  id_organizacion: string;
+  nombre: string;
+  direccion: string | null;
+  eslogan: string | null;
+  telefono: string | null;
+  correo: string | null;
+  direccion_web: string | null;
+  logo: string | null;
+};
+
 function value(formData: FormData, key: string) {
   return String(formData.get(key) ?? "").trim();
+}
+
+function optionalValue(formData: FormData, key: string) {
+  const raw = value(formData, key);
+  return raw || null;
 }
 
 function profileRedirect(kind: "error" | "mensaje", message: string): never {
@@ -50,7 +66,12 @@ export async function updateProfile(formData: FormData) {
   const email = value(formData, "email");
   const password = value(formData, "password");
   const passwordConfirmation = value(formData, "password_confirmation");
-  const organization = value(formData, "organizacion") || null;
+  const organizationName = value(formData, "organizacion") || null;
+  const organizationAddress = optionalValue(formData, "direccion");
+  const organizationSlogan = optionalValue(formData, "eslogan");
+  const organizationPhone = optionalValue(formData, "telefono");
+  const organizationEmail = optionalValue(formData, "correo");
+  const organizationWebsite = optionalValue(formData, "direccion_web");
 
   if (!username || !email) profileRedirect("error", "El usuario y el correo son obligatorios.");
   if (password && password.length < 8) profileRedirect("error", "La contraseña debe tener al menos 8 caracteres.");
@@ -58,10 +79,14 @@ export async function updateProfile(formData: FormData) {
 
   const { data: existingProfile } = await supabase
     .from("usuario")
-    .select("logo")
+    .select("id_organizacion, organizacion(id_organizacion, nombre, direccion, eslogan, telefono, correo, direccion_web, logo)")
     .eq("id_usuario", user.id)
     .maybeSingle();
-  const currentLogo = existingProfile?.logo ?? null;
+
+  const currentOrganization = (existingProfile?.organizacion ?? null) as OrganizationProfile | null;
+  const currentLogo = currentOrganization?.logo ?? null;
+  const currentOrganizationName = currentOrganization?.nombre ?? null;
+  const organizationId = existingProfile?.id_organizacion ?? currentOrganization?.id_organizacion ?? null;
 
   const { error: authError } = await supabase.auth.updateUser({
     email,
@@ -78,7 +103,7 @@ export async function updateProfile(formData: FormData) {
     if (!extension) profileRedirect("error", "El logo debe ser una imagen PNG, JPG, WEBP o GIF.");
     if (logoField.size > MAX_LOGO_BYTES) profileRedirect("error", "El logo no puede superar los 5 MB.");
 
-    const baseName = slugify(organization || username);
+    const baseName = slugify(organizationName || currentOrganizationName || username);
     const logoPath = `${user.id}/${baseName}.${extension}`;
 
     const { error: uploadError } = await supabase.storage
@@ -89,13 +114,62 @@ export async function updateProfile(formData: FormData) {
     logoToSave = logoPath;
   }
 
-  const { data: updatedProfile, error: profileError } = await supabase
-    .from("usuario")
-    .update({ organizacion: organization, ...(logoToSave !== currentLogo ? { logo: logoToSave } : {}) })
-    .eq("id_usuario", user.id)
-    .select("id_usuario")
-    .maybeSingle();
-  if (profileError || !updatedProfile) profileRedirect("error", "Se actualizaron los datos de acceso, pero no la organización.");
+  const hasOrganizationInput = Boolean(
+    organizationName ||
+      organizationAddress ||
+      organizationSlogan ||
+      organizationPhone ||
+      organizationEmail ||
+      organizationWebsite ||
+      logoToSave !== currentLogo,
+  );
+
+  if (organizationId) {
+    const organizationPayload = {
+      nombre: organizationName || currentOrganizationName || "Mi organización",
+      direccion: organizationAddress,
+      eslogan: organizationSlogan,
+      telefono: organizationPhone,
+      correo: organizationEmail,
+      direccion_web: organizationWebsite,
+      ...(logoToSave !== currentLogo ? { logo: logoToSave } : {}),
+    };
+
+    const { data: updatedOrganization, error: organizationError } = await supabase
+      .from("organizacion")
+      .update(organizationPayload)
+      .eq("id_organizacion", organizationId)
+      .select("id_organizacion")
+      .maybeSingle();
+    if (organizationError || !updatedOrganization) {
+      profileRedirect("error", "Se actualizaron los datos de acceso, pero no la organización.");
+    }
+  } else if (hasOrganizationInput) {
+    const organizationPayload = {
+      nombre: organizationName || "Mi organización",
+      direccion: organizationAddress,
+      eslogan: organizationSlogan,
+      telefono: organizationPhone,
+      correo: organizationEmail,
+      direccion_web: organizationWebsite,
+      ...(logoToSave !== currentLogo ? { logo: logoToSave } : {}),
+    };
+
+    const { data: newOrganization, error: organizationError } = await supabase
+      .from("organizacion")
+      .insert(organizationPayload)
+      .select("id_organizacion")
+      .single();
+    if (organizationError || !newOrganization) {
+      profileRedirect("error", "Se actualizaron los datos de acceso, pero no la organización.");
+    }
+
+    const { error: linkError } = await supabase
+      .from("usuario")
+      .update({ id_organizacion: newOrganization.id_organizacion })
+      .eq("id_usuario", user.id);
+    if (linkError) profileRedirect("error", "Se creó la organización, pero no se pudo vincular al usuario.");
+  }
 
   if (logoToSave !== currentLogo && currentLogo) {
     await supabase.storage.from(LOGO_BUCKET).remove([currentLogo]);
