@@ -124,6 +124,8 @@ npm run lint
 
 ## Licencia
 
-Este proyecto esta licenciado bajo GPL-3.0-only. Puedes usarlo, estudiarlo, modificarlo y distribuirlo bajo los terminos de la GNU General Public License version 3.
+Este proyecto está bajo la licencia **[AGPLv3](./LICENSE)**.
+
+Puedes ver, clonar, modificar y usar el código libremente. Si despliegas una versión modificada como servicio online, debes publicar tu código bajo la misma licencia.
 
 Ver [`LICENSE`](./LICENSE) para el texto completo.
