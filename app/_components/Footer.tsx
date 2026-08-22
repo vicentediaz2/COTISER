@@ -1,4 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
+import packageJson from "../../package.json";
+
+const repositoryUrl = "https://github.com/vicentediaz2/cotizapro";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -9,7 +13,6 @@ export function Footer() {
         <div className="space-y-6">
           <div className="flex flex-wrap items-center justify-between gap-4 border-t border-blue-50 pt-6 text-sm text-white">
             <p>&copy; {currentYear} <span className="font-black text-white">Cotiser</span>. Código abierto bajo AGPLv3.</p>
-
             <div className="flex flex-wrap gap-4">
               <Link
                 href="/legal/terminos"
@@ -31,8 +34,19 @@ export function Footer() {
               </Link>
             </div>
           </div>
-
-          <div className="border-t border-blue-50 pt-6 text-sm text-white">
+          <div className="flex flex-wrap items-center gap-4 border-t border-blue-50 pt-6 text-sm text-white">
+            <Link
+                href="/#"
+                className="inline-flex items-center justify-center rounded-lg text-sm font-medium text-white transition hover:text-blue-50"
+              >
+              <Image
+                src="/elementos-graficos/isotipo-celeste.svg"
+                alt="Logo de Cotiser"
+                width={64}
+                height={64}
+                className="size-24 shrink-0"
+              />
+            </Link>
             <div className="space-y-2">
               <p>
                 <span className="font-semibold">Desarrollado por:</span>{" "}
@@ -55,6 +69,21 @@ export function Footer() {
                 >
                   Constanza Pacheco
                 </a>
+              </p>
+              <p>
+                <span className="font-semibold">Código fuente:</span>{" "}
+                <a
+                  href={repositoryUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-50 font-bold underline-offset-2 hover:semifont-bold hover:underline"
+                >
+                  GitHub
+                </a>
+              </p>
+              <p>
+                <span className="font-semibold">Versión del sistema:</span>{" "}
+                {packageJson.version}
               </p>
             </div>
           </div>

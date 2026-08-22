@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Footer } from "@/app/_components/Footer";
 import { Brand } from "@/app/_components/Brand";
 
 const legalNav = [
@@ -34,7 +33,6 @@ export default function LegalLayout({
       <main className="flex-1 px-6 py-12 lg:py-16">
         <div className="mx-auto max-w-4xl">{children}</div>
       </main>
-      <Footer />
     </div>
   );
 }

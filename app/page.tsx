@@ -1,5 +1,4 @@
 import { ContactCta } from "./_components/ContactCta";
-import { Footer } from "./_components/Footer";
 import { DifferenceSection } from "./_components/DifferenceSection";
 import { FeatureGrid } from "./_components/FeatureGrid";
 import { FeaturesSection } from "./_components/FeaturesSection";
@@ -129,7 +128,6 @@ export default function Home() {
       <DifferenceSection differences={differences} />
       <WhoForSection items={whoFor} />
       <ContactCta />
-      <Footer />
     </main>
   );
 }
