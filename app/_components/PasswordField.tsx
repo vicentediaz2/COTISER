@@ -16,7 +16,7 @@ export function PasswordField({ name, label, autoComplete, placeholder, showRequ
   const [password, setPassword] = useState("");
 
   return (
-    <label className="grid gap-2 text-sm font-medium text-slate-700">
+    <label className="row-end-3 gap-2 text-sm font-medium text-slate-700">
       {label}
       <span className="relative">
         <input

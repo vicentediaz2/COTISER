@@ -2,6 +2,7 @@ import Link from "next/link";
 import { AuthShell } from "@/app/_components/AuthShell";
 import { FormMessage } from "@/app/_components/FormMessage";
 import { PasswordField } from "@/app/_components/PasswordField";
+import { TermsSubmit } from "@/app/_components/TermsSubmit";
 import { signUp } from "@/app/auth/actions";
 import { hasSupabaseEnv } from "@/lib/supabase/env";
 
@@ -18,11 +19,11 @@ export default async function RegisterPage({ searchParams }: Props) {
         <FormMessage error={error} />
         <label className="grid gap-2 text-sm font-medium text-slate-700">Nombre<input name="name" required autoComplete="name" className="form-control" placeholder="Tu nombre" /></label>
         <label className="grid gap-2 text-sm font-medium text-slate-700">Correo electrónico<input name="email" type="email" required autoComplete="email" className="form-control" placeholder="tu@empresa.cl" /></label>
-        <div className="grid gap-5 sm:grid-cols-2">
+        <div className="grid grid-flow-col gap-5 sm:grid-cols-2">
           <PasswordField name="password" label="Contraseña" autoComplete="new-password" showRequirements />
           <PasswordField name="password_confirmation" label="Repetir contraseña" autoComplete="new-password" />
         </div>
-        <button disabled={!configured} className="primary-button w-full disabled:cursor-not-allowed disabled:opacity-50">Crear cuenta</button>
+        <TermsSubmit configured={configured} />
         <p className="text-center text-sm text-slate-600">¿Ya tienes cuenta? <Link className="font-semibold text-blue-700 hover:underline" href="/iniciar-sesion">Inicia sesión</Link></p>
       </form>
     </AuthShell>
