@@ -2,13 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { LandingHeader } from "./LandingHeader";
 
-type Metric = {
-  value: string;
-  label: string;
-};
-
-
-
 export function HeroSection() {
   return (
     <section className="relative isolate overflow-hidden bg-blue-950 text-white">

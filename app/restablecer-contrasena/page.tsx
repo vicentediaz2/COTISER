@@ -16,8 +16,10 @@ export default async function ResetPasswordPage({ searchParams }: Props) {
         <FormMessage error={error} />
         <PasswordField name="password" label="Nueva contraseña" autoComplete="new-password" showRequirements />
         <PasswordField name="password_confirmation" label="Repetir nueva contraseña" autoComplete="new-password" />
-        <button className="primary-button w-full">Actualizar contraseña</button>
-        <p className="text-center text-sm text-slate-600">¿No recibiste el correo? <Link className="font-semibold text-blue-700 hover:underline" href="/recuperar-contrasena">Solicita otro enlace</Link></p>
+        <button className="mt-4 primary-button w-full">Actualizar contraseña</button>
+        <p className="text-center text-sm text-slate-600">¿No recibiste el correo? 
+          <Link className="font-semibold text-blue-700 hover:underline" href="/recuperar-contrasena">Solicita otro enlace</Link>
+        </p>
       </form>
     </AuthShell>
   );

@@ -48,7 +48,7 @@ export function QuotationView({ quotation, onClose }: { quotation: ViewQuotation
           <div className="overflow-x-auto rounded-lg border border-blue-100">
             <table className="w-full text-left text-sm">
               <thead>
-                <tr className="border-b border-blue-100 bg-blue-50/40 text-xs uppercase tracking-wide text-slate-500">
+                <tr className="border-b border-blue-100 text-xs uppercase tracking-wide text-slate-500">
                   <th className="px-4 py-3 font-medium">Servicio</th>
                   <th className="px-4 py-3 text-right font-medium">Cantidad</th>
                   <th className="px-4 py-3 text-right font-medium">Precio unitario</th>
@@ -81,7 +81,7 @@ export function QuotationView({ quotation, onClose }: { quotation: ViewQuotation
           </div>
         )}
 
-        <div className="mt-4 rounded-lg bg-blue-50/40 p-4">
+        <div className="mt-4 rounded-lg p-4">
           <dl className="grid gap-2 text-sm sm:ml-auto sm:max-w-xs">
             <div className="flex justify-between gap-8"><dt className="text-slate-600">Subtotal</dt><dd className="font-semibold text-slate-900">{format.format(quotation.subtotal)}</dd></div>
             {discountAmount > 0 && <div className="flex justify-between gap-8"><dt className="text-slate-600">Descuento</dt><dd className="font-semibold text-slate-900">-{format.format(discountAmount)}</dd></div>}

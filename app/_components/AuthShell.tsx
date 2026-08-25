@@ -2,7 +2,7 @@ import { Brand } from "./Brand";
 
 export function AuthShell({ children }: { children: React.ReactNode }) {
   return (
-    <main className="min-h-screen bg-slate-50 text-slate-950">
+    <main className="bg-slate-50 text-slate-950">
       <header className="border-b border-blue-100 bg-white px-6 py-5">
         <div className="mx-auto max-w-6xl"><Brand dark /></div>
       </header>
