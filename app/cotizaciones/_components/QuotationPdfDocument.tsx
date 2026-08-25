@@ -5,7 +5,7 @@ import type { HtmlOrganization, HtmlQuotation } from "./QuotationHtmlDocument";
 
 const labels: Record<string, string> = { pendiente: "Pendiente", enviada: "Enviada", aprobada: "Aprobada", rechazada: "Rechazada", vencida: "Vencida" };
 const money = new Intl.NumberFormat("es-CL", { style: "currency", currency: "CLP", maximumFractionDigits: 0 });
-const value = (text?: string | null) => text?.trim() || "—";
+const value = (text?: string | null) => text?.trim() || "";
 
 const styles = StyleSheet.create({
   page: { padding: 36, fontSize: 10, color: "#0f172a", fontFamily: "Helvetica" },
@@ -51,5 +51,102 @@ const styles = StyleSheet.create({
 export function QuotationPdfDocument({ quotation, organization }: { quotation: HtmlQuotation; organization: HtmlOrganization | null }) {
   const discountAmount = Math.round(quotation.subtotal * (quotation.discount ?? 0) / 100);
   const taxAmount = Math.round((quotation.subtotal - discountAmount) * (quotation.taxRate ?? 0) / 100);
-  return <Document title={`Cotización ${quotation.id}`} author={organization?.nombre ?? "CotizaPro"}><Page size="A4" style={styles.page}><View style={styles.header}><View style={styles.headerLeft}>{organization?.logo && <Image src={organization.logo} style={styles.logo} />}<View><Text style={styles.orgName}>{value(organization?.nombre)}</Text><Text style={styles.slogan}>{value(organization?.eslogan)}</Text><Text style={styles.orgLine}>{value(organization?.direccion)}</Text><Text style={styles.orgLine}>{value(organization?.telefono)} · {value(organization?.correo)}</Text></View></View><View style={styles.headerRight}><Text style={styles.docLabel}>Cotización</Text><Text style={styles.docId}>#{quotation.id.slice(0, 8).toUpperCase()}</Text><Text style={styles.docDate}>{new Date(quotation.date).toLocaleDateString("es-CL")}</Text><Text style={styles.docAudience}>Creada exclusivamente para {quotation.clientName || "el cliente"} el {new Date().toLocaleDateString("es-CL")}.</Text><Text style={styles.docStatus}>{labels[quotation.status] ?? quotation.status}</Text></View></View><View style={styles.section}><View><Text style={styles.caption}>Cliente</Text><Text style={styles.clientName}>{value(quotation.clientName)}</Text><Text style={styles.clientLine}>{value(quotation.clientAddress)}</Text><Text style={styles.clientLine}>RUT / ID: {value(quotation.clientTaxId)}</Text></View><View style={styles.contactBlock}><Text style={styles.caption}>Datos de contacto</Text><Text style={styles.clientLine}>{value(organization?.correo)}</Text><Text style={styles.clientLine}>{value(organization?.telefono)}</Text><Text style={styles.clientLine}>{value(organization?.direccion_web)}</Text></View></View><View style={{ marginTop: 8 }}><View style={styles.tableHead}><Text style={styles.serviceHead}>Servicio</Text><Text style={styles.qtyHead}>Cantidad</Text><Text style={styles.priceHead}>Valor unitario</Text><Text style={styles.totalHead}>Total</Text></View>{quotation.items.map((item, index) => <View key={`${item.description}-${index}`} style={styles.tableRow}><Text style={styles.serviceCell}>{item.description}</Text><Text style={styles.qtyCell}>{item.quantity}</Text><Text style={styles.priceCell}>{money.format(item.unitPrice)}</Text><Text style={styles.totalCell}>{money.format(Math.round(item.quantity * item.unitPrice * (1 - (item.discount ?? 0) / 100)))}</Text></View>)}</View>{quotation.notes && <View style={styles.notesSection}><Text style={styles.caption}>Observaciones</Text><Text style={styles.notesText}>{quotation.notes}</Text></View>}<View style={styles.totals}><View style={styles.totalRow}><Text style={styles.totalStrong}>Subtotal</Text><Text style={styles.totalStrong}>{money.format(quotation.subtotal)}</Text></View>{discountAmount > 0 && <View style={styles.totalRow}><Text>Descuento</Text><Text style={styles.totalStrong}>-{money.format(discountAmount)}</Text></View>}{taxAmount > 0 && <View style={styles.totalRow}><Text>Impuesto ({quotation.taxRate}%)</Text><Text style={styles.totalStrong}>{money.format(taxAmount)}</Text></View>}<View style={styles.grandRow}><Text style={styles.totalStrong}>Total</Text><Text style={styles.grandStrong}>{money.format(quotation.total)}</Text></View></View><View style={styles.footer}><Text style={styles.footerText}>Cotización válida solo por 20 días.</Text><Text style={styles.footerLead}>Documento generado mediante CotizaPro, una herramienta de gestión y creación de cotizaciones. CotizaPro no participa ni se responsabiliza por los acuerdos, precios, servicios, pagos o compromisos establecidos entre las partes.</Text></View></Page></Document>;
+
+  const hasClientTaxId = value(quotation.clientTaxId);
+  const hasOrgContact = value(organization?.correo) || value(organization?.telefono) || value(organization?.direccion_web);
+
+  return (
+    <Document title={`Cotización ${quotation.id}`} author={organization?.nombre ?? "CotizaPro"}>
+      <Page size="A4" style={styles.page}>
+        <View style={styles.header}>
+          <View style={styles.headerLeft}>
+            {organization?.logo && <Image src={organization.logo} style={styles.logo} />}
+            <View>
+              <Text style={styles.orgName}>{value(organization?.nombre)}</Text>
+              <Text style={styles.slogan}>{value(organization?.eslogan)}</Text>
+              <Text style={styles.orgLine}>{value(organization?.direccion)}</Text>
+              <Text style={styles.orgLine}>{value(organization?.telefono)} · {value(organization?.correo)}</Text>
+            </View>
+          </View>
+          <View style={styles.headerRight}>
+            <Text style={styles.docLabel}>Cotización</Text>
+            <Text style={styles.docId}>#{quotation.id.slice(0, 8).toUpperCase()}</Text>
+            <Text style={styles.docDate}>{new Date(quotation.date).toLocaleDateString("es-CL")}</Text>
+            <Text style={styles.docAudience}>Creada exclusivamente para {quotation.clientName || "el cliente"} el {new Date().toLocaleDateString("es-CL")}.</Text>
+            <Text style={styles.docStatus}>{labels[quotation.status] ?? quotation.status}</Text>
+          </View>
+        </View>
+
+        <View style={styles.section}>
+          <View>
+            <Text style={styles.caption}>Cliente</Text>
+            <Text style={styles.clientName}>{value(quotation.clientName)}</Text>
+            <Text style={styles.clientLine}>{value(quotation.clientAddress)}</Text>
+            {hasClientTaxId && <Text style={styles.clientLine}>RUT / ID: {value(quotation.clientTaxId)}</Text>}
+          </View>
+          {hasOrgContact && (
+            <View style={styles.contactBlock}>
+              <Text style={styles.caption}>Datos de contacto</Text>
+              <Text style={styles.clientLine}>{value(organization?.correo)}</Text>
+              <Text style={styles.clientLine}>{value(organization?.telefono)}</Text>
+              <Text style={styles.clientLine}>{value(organization?.direccion_web)}</Text>
+            </View>
+          )}
+        </View>
+
+        <View style={{ marginTop: 8 }}>
+          <View style={styles.tableHead}>
+            <Text style={styles.serviceHead}>Servicio</Text>
+            <Text style={styles.qtyHead}>Cantidad</Text>
+            <Text style={styles.priceHead}>Valor unitario</Text>
+            <Text style={styles.totalHead}>Total</Text>
+          </View>
+          {quotation.items.map((item, index) => {
+            const qty = Number(item.quantity) || 0;
+            const unit = Number(item.unitPrice) || 0;
+            return (
+              <View key={index} style={styles.tableRow}>
+                <View style={styles.serviceCell}>
+                  <Text>{item.description}</Text>
+                </View>
+                <Text style={styles.qtyCell}>{qty}</Text>
+                <Text style={styles.priceCell}>{money.format(unit)}</Text>
+                <Text style={styles.totalCell}>{money.format(qty * unit)}</Text>
+              </View>
+            );
+          })}
+        </View>
+
+        {quotation.notes && (
+          <View style={styles.notesSection}>
+            <Text style={styles.caption}>Notas</Text>
+            <Text style={styles.notesText}>{quotation.notes}</Text>
+          </View>
+        )}
+
+        <View style={styles.totals}>
+          <View style={styles.totalRow}>
+            <Text>Subtotal</Text>
+            <Text style={styles.totalStrong}>{money.format(quotation.subtotal)}</Text>
+          </View>
+          {(quotation.discount ?? 0) > 0 && (
+            <View style={styles.totalRow}>
+              <Text>Descuento ({quotation.discount}%)</Text>
+              <Text style={[styles.totalStrong, { color: "#dc2626" }]}>-{money.format(discountAmount)}</Text>
+            </View>
+          )}
+          {(quotation.taxRate ?? 0) > 0 && (
+            <View style={styles.totalRow}>
+              <Text>IVA ({quotation.taxRate}%)</Text>
+              <Text style={styles.totalStrong}>{money.format(taxAmount)}</Text>
+            </View>
+          )}
+          <View style={styles.grandRow}>
+            <Text style={styles.grandStrong}>Total</Text>
+            <Text style={styles.grandStrong}>{money.format(quotation.total)}</Text>
+          </View>
+        </View>
+      </Page>
+    </Document>
+  );
 }
