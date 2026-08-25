@@ -1,10 +1,11 @@
 import { Brand } from "./Brand";
+import { headerBar, headerInner } from "./headerStyles";
 
 export function AuthShell({ children }: { children: React.ReactNode }) {
   return (
     <main className="bg-slate-50 text-slate-950">
-      <header className="border-b border-blue-100 bg-white px-6 py-5">
-        <div className="mx-auto max-w-6xl"><Brand dark /></div>
+      <header className={headerBar}>
+        <div className={headerInner}><Brand /></div>
       </header>
       <section className="mx-auto grid max-w-6xl gap-10 px-6 py-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:py-20">
         <div>

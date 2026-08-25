@@ -1,5 +1,6 @@
 import { Brand } from "@/app/_components/Brand";
 import { FormMessage } from "@/app/_components/FormMessage";
+import { headerActions, headerActionSecondary, headerBar, headerInner } from "@/app/_components/headerStyles";
 import { signOut } from "@/app/auth/actions";
 import { getSupabaseEnv, hasSupabaseEnv } from "@/lib/supabase/env";
 import { createClient } from "@/lib/supabase/server";
@@ -99,7 +100,7 @@ export default async function QuotationsPage({ searchParams }: Props) {
   const params = await searchParams;
 
   return <main className="min-h-screen bg-slate-50 text-slate-950">
-    <header className="border-b border-blue-100 bg-white px-6 py-4"><div className="mx-auto flex max-w-7xl items-center justify-between"><Brand dark /><div className="flex items-center gap-3"><Link href="/perfil" className="rounded-lg border border-blue-100 px-4 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-50">Editar perfil</Link><form action={signOut}><button className="rounded-lg border border-blue-100 px-4 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-50">Cerrar sesión</button></form></div></div></header>
+    <header className={headerBar}><div className={headerInner}><Brand /><div className={headerActions}><Link href="/perfil" className={`inline-flex ${headerActionSecondary}`}>Editar perfil</Link><form action={signOut}><button className={`inline-flex ${headerActionSecondary}`}>Cerrar sesión</button></form></div></div></header>
     <div className="mx-auto max-w-7xl space-y-8 px-6 py-10"><div><h1 className="mt-2 text-4xl font-semibold">Panel</h1><p className="mt-2 text-slate-600">Consulta el historial y administra tus clientes, servicios y propuestas.</p></div><FormMessage error={params.error ?? (queryError ? `No se pudieron cargar los datos: ${queryError.message}` : undefined)} message={params.mensaje} /><PanelActions customers={customers} services={services} customerRecords={customerRecords} serviceRecords={serviceRecords} /><section><div className="mb-4 flex items-center justify-between gap-4"><h2 className="text-xl font-semibold">Historial de cotizaciones</h2><span className="text-sm text-slate-500">{quotations.length} {quotations.length === 1 ? "registro" : "registros"}</span></div><QuotationList quotations={editableQuotations} customers={customers} services={services} organization={exportOrganization} /></section></div>
   </main>;
 }
