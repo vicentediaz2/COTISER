@@ -17,7 +17,7 @@ const labels: Record<string, string> = { pendiente: "Pendiente", enviada: "Envia
 const badgeColors: Record<string, string> = {
   pendiente: "bg-blue-50 text-blue-700",
   enviada: "bg-amber-50 text-amber-700",
-  aprobada: "bg-emerald-50 text-emerald-700",
+  aprobada: "bg-red-50 text-red-700",
   rechazada: "bg-red-50 text-red-700",
   vencida: "bg-slate-100 text-slate-700",
 };

@@ -43,7 +43,7 @@ export function PasswordField({ name, label, autoComplete, placeholder, showRequ
         <ul className="space-y-1 text-xs font-normal text-slate-500" aria-live="polite">
           {passwordRequirements.map(({ key, label: requirement, test }) => {
             const met = test(password);
-            return <li key={key} className={met ? "text-emerald-700" : undefined}>{met ? "✓" : "○"} {requirement}</li>;
+            return <li key={key} className={met ? "text-red-700" : undefined}>{met ? "✓" : "○"} {requirement}</li>;
           })}
         </ul>
       )}

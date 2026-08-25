@@ -104,7 +104,7 @@ export function DraggableCarousel({ children, label }: DraggableCarouselProps) {
       <button
         type="button"
         aria-label="Ver tarjetas anteriores"
-        className="absolute left-0 top-1/2 z-10 grid size-10 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-blue-100 bg-white text-lg text-blue-700 shadow-md transition hover:border-blue-300 hover:bg-blue-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 sm:-translate-x-1/2"
+        className="absolute left-0 top-1/2 z-10 grid size-10 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-blue-200 bg-white text-lg text-blue-700 shadow-md transition hover:border-blue-300 hover:bg-blue-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 sm:-translate-x-1/2"
         onClick={() => scrollByCard(-1)}
       >
         <span aria-hidden="true">&larr;</span>
@@ -133,7 +133,7 @@ export function DraggableCarousel({ children, label }: DraggableCarouselProps) {
       <button
         type="button"
         aria-label="Ver m&aacute;s tarjetas"
-        className="absolute right-0 top-1/2 z-10 grid size-10 translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-blue-100 bg-white text-lg text-blue-700 shadow-md transition hover:border-blue-300 hover:bg-blue-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 sm:translate-x-1/2"
+        className="absolute right-0 top-1/2 z-10 grid size-10 translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-blue-200 bg-white text-lg text-blue-700 shadow-md transition hover:border-blue-300 hover:bg-blue-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 sm:translate-x-1/2"
         onClick={() => scrollByCard(1)}
       >
         <span aria-hidden="true">&rarr;</span>
@@ -146,7 +146,7 @@ export function DraggableCarousel({ children, label }: DraggableCarouselProps) {
               type="button"
               aria-label={`Ir a la tarjeta ${index + 1}`}
               aria-current={activeIndex === index ? "true" : undefined}
-              className={`h-2 rounded-full transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 ${activeIndex === index ? "w-6 bg-blue-700" : "w-2 bg-blue-200 hover:bg-blue-400"}`}
+              className={`h-2 rounded-full transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-700 ${activeIndex === index ? "w-6 bg-red-700" : "w-2 bg-red-200 hover:bg-red-400"}`}
               onClick={() => goToSlide(index)}
             />
           ))}
