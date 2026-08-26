@@ -14,7 +14,7 @@ export default async function LoginPage({ searchParams }: Props) {
     <AuthShell>
       <form action={signIn} className="space-y-5 rounded-xl border border-blue-100 bg-white p-6 shadow-xl shadow-blue-950/5 sm:p-8">
         <div>
-          <h2 className="text-2xl font-semibold">Iniciar sesión</h2>
+          <h2 className="text-2xl font-semibold text-blue-700">Iniciar sesión</h2>
           <p className="mt-2 text-sm text-slate-600">Accede a tus cotizaciones guardadas.</p>
         </div>
         {!configured && <FormMessage error="Supabase aún no está configurado. Completa las variables de entorno para habilitar el acceso." />}

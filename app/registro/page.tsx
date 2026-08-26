@@ -14,7 +14,7 @@ export default async function RegisterPage({ searchParams }: Props) {
   return (
     <AuthShell>
       <form action={signUp} className="space-y-5 rounded-xl border border-blue-100 bg-white p-6 shadow-xl shadow-blue-950/5 sm:p-8">
-        <div><h2 className="text-2xl font-semibold">Crear una cuenta</h2><p className="mt-2 text-sm text-slate-600">Comienza a gestionar tus propuestas.</p></div>
+        <div><h2 className="text-2xl font-semibold text-blue-700">Crear una cuenta</h2><p className="mt-2 text-sm text-slate-600">Comienza a gestionar tus propuestas.</p></div>
         {!configured && <FormMessage error="Supabase aún no está configurado. Completa las variables de entorno para habilitar el registro." />}
         <FormMessage error={error} />
         <label className="grid gap-2 text-sm font-medium text-slate-700">Nombre<input name="name" required autoComplete="name" className="form-control" placeholder="Tu nombre" /></label>

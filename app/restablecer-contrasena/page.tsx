@@ -12,7 +12,7 @@ export default async function ResetPasswordPage({ searchParams }: Props) {
   return (
     <AuthShell>
       <form action={resetPassword} className="space-y-5 rounded-xl border border-blue-100 bg-white p-6 shadow-xl shadow-blue-950/5 sm:p-8">
-        <div><h2 className="text-2xl font-semibold">Crea una nueva contraseña</h2><p className="mt-2 text-sm text-slate-600">Elige una contraseña segura para recuperar el acceso.</p></div>
+        <div><h2 className="text-2xl font-semibold text-blue-700">Crea una nueva contraseña</h2><p className="mt-2 text-sm text-slate-600">Elige una contraseña segura para recuperar el acceso.</p></div>
         <FormMessage error={error} />
         <PasswordField name="password" label="Nueva contraseña" autoComplete="new-password" showRequirements />
         <PasswordField name="password_confirmation" label="Repetir nueva contraseña" autoComplete="new-password" />

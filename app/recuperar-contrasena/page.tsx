@@ -13,7 +13,7 @@ export default async function ForgotPasswordPage({ searchParams }: Props) {
   return (
     <AuthShell>
       <form action={requestPasswordReset} className="space-y-5 rounded-xl border border-blue-100 bg-white p-6 shadow-xl shadow-blue-950/5 sm:p-8">
-        <div><h2 className="text-2xl font-semibold">Recuperar contraseña</h2><p className="mt-2 text-sm text-slate-600">Te enviaremos un enlace para crear una nueva contraseña.</p></div>
+        <div><h2 className="text-2xl font-semibold text-blue-700">Recuperar contraseña</h2><p className="mt-2 text-sm text-slate-600">Te enviaremos un enlace para crear una nueva contraseña.</p></div>
         {!configured && <FormMessage error="Supabase aún no está configurado. Completa las variables de entorno para habilitar la recuperación." />}
         <FormMessage error={params.error} message={params.mensaje} />
         <label className="grid gap-2 text-sm font-medium text-slate-700">Correo electrónico<input name="email" type="email" required autoComplete="email" className="form-control" placeholder="tu@empresa.cl" /></label>
