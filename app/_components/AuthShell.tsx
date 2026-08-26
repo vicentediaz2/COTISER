@@ -3,7 +3,7 @@ import { headerBar, headerInner } from "./headerStyles";
 
 export function AuthShell({ children }: { children: React.ReactNode }) {
   return (
-    <main className="bg-slate-50 text-slate-950">
+    <main className="bg-slate-100 text-slate-950">
       <header className={headerBar}>
         <div className={headerInner}><Brand /></div>
       </header>

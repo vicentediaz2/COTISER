@@ -35,7 +35,7 @@ function formatDate(value: string | null | undefined) {
 
 export default async function ProfilePage({ searchParams }: Props) {
   if (!hasSupabaseEnv()) {
-    return <main className="grid min-h-screen place-items-center bg-slate-50 px-6"><div className="rounded-xl border border-amber-200 bg-white p-8 text-center shadow-sm"><h1 className="text-2xl font-semibold">Falta conectar Supabase</h1><p className="mt-3 text-slate-600">Configura las variables de entorno para editar tu perfil.</p></div></main>;
+    return <main className="grid min-h-screen place-items-center bg-slate-100 px-6"><div className="rounded-xl border border-amber-200 bg-white p-8 text-center shadow-sm"><h1 className="text-2xl font-semibold">Falta conectar Supabase</h1><p className="mt-3 text-slate-600">Configura las variables de entorno para editar tu perfil.</p></div></main>;
   }
 
   const supabase = await createClient();
@@ -54,7 +54,7 @@ export default async function ProfilePage({ searchParams }: Props) {
   const logoUrl = logoPath ? `${getSupabaseEnv().url}/storage/v1/object/public/logos/${logoPath}` : null;
 
   return (
-    <main className="min-h-screen bg-slate-50 text-slate-950">
+    <main className="min-h-screen bg-slate-100 text-slate-950">
       <header className={headerBar}><div className={headerInner}><Brand /><div className={headerActions}><Link href="/panel" className={`inline-flex ${headerActionSecondary}`}>Volver al panel</Link><form action={signOut}><button className={`inline-flex ${headerActionSecondary}`}>Cerrar sesión</button></form></div></div></header>
       <div className="mx-auto max-w-3xl px-6 py-10">
         <div className="mb-8"><p className="text-sm font-semibold uppercase tracking-wide text-blue-700">Configuración</p><h1 className="mt-2 text-4xl font-semibold">Editar perfil</h1><p className="mt-2 text-slate-600">Administra los datos de acceso y la información de tu organización.</p></div>

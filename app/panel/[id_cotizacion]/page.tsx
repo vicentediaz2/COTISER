@@ -30,7 +30,7 @@ export default async function HtmlQuotationPage({ params }: Props) {
     supabase.from("usuario").select("organizacion(id_organizacion, nombre, direccion, eslogan, telefono, correo, direccion_web, logo)").eq("id_usuario", authData.user.id).maybeSingle(),
   ]);
 
-  if (quotationResult.error || !quotationResult.data) return <main className="grid min-h-screen place-items-center bg-slate-50 p-6"><div className="rounded-xl bg-white p-8 text-center shadow-sm"><h1 className="text-xl font-semibold">Cotización no encontrada</h1><p className="mt-2 text-sm text-slate-600">No tienes acceso a esta cotización o ya no existe.</p></div></main>;
+  if (quotationResult.error || !quotationResult.data) return <main className="grid min-h-screen place-items-center bg-slate-100 p-6"><div className="rounded-xl bg-white p-8 text-center shadow-sm"><h1 className="text-xl font-semibold">Cotización no encontrada</h1><p className="mt-2 text-sm text-slate-600">No tienes acceso a esta cotización o ya no existe.</p></div></main>;
 
   const quotation = quotationResult.data as any;
   const client = one(quotation.cliente);

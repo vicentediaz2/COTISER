@@ -57,7 +57,7 @@ function publicLogoUrl(path: string | null | undefined) {
 }
 
 export default async function QuotationsPage({ searchParams }: Props) {
-  if (!hasSupabaseEnv()) return <main className="grid min-h-screen place-items-center bg-slate-50 px-6"><div className="max-w-lg rounded-xl border border-amber-200 bg-white p-8 text-center shadow-sm"><h1 className="text-2xl font-semibold">Falta conectar Supabase</h1><p className="mt-3 text-slate-600">Copia <code>.env.example</code> como <code>.env.local</code>, agrega las claves públicas del proyecto y ejecuta la migración incluida.</p></div></main>;
+  if (!hasSupabaseEnv()) return <main className="grid min-h-screen place-items-center bg-slate-100 px-6"><div className="max-w-lg rounded-xl border border-amber-200 bg-white p-8 text-center shadow-sm"><h1 className="text-2xl font-semibold">Falta conectar Supabase</h1><p className="mt-3 text-slate-600">Copia <code>.env.example</code> como <code>.env.local</code>, agrega las claves públicas del proyecto y ejecuta la migración incluida.</p></div></main>;
 
   const supabase = await createClient();
   const { data: claimsData } = await supabase.auth.getClaims();
@@ -99,7 +99,7 @@ export default async function QuotationsPage({ searchParams }: Props) {
   }));
   const params = await searchParams;
 
-  return <main className="min-h-screen bg-slate-50 text-slate-950">
+  return <main className="min-h-screen bg-slate-100 text-slate-950">
     <header className={headerBar}><div className={headerInner}><Brand /><div className={headerActions}><Link href="/perfil" className={`inline-flex ${headerActionSecondary}`}>Editar perfil</Link><form action={signOut}><button className={`inline-flex ${headerActionSecondary}`}>Cerrar sesión</button></form></div></div></header>
     <div className="mx-auto max-w-7xl space-y-8 px-6 py-10"><div><h1 className="mt-2 text-4xl font-semibold">Panel</h1><p className="mt-2 text-slate-600">Consulta el historial y administra tus clientes, servicios y propuestas.</p></div><FormMessage error={params.error ?? (queryError ? `No se pudieron cargar los datos: ${queryError.message}` : undefined)} message={params.mensaje} /><PanelActions customers={customers} services={services} customerRecords={customerRecords} serviceRecords={serviceRecords} /><section><div className="mb-4 flex items-center justify-between gap-4"><h2 className="text-xl font-semibold">Historial de cotizaciones</h2><span className="text-sm text-slate-500">{quotations.length} {quotations.length === 1 ? "registro" : "registros"}</span></div><QuotationList quotations={editableQuotations} customers={customers} services={services} organization={exportOrganization} /></section></div>
   </main>;
