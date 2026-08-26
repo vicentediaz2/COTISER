@@ -12,7 +12,7 @@ export function Brand({ light = false }: { light?: boolean }) {
           height={60}
         />
       </span>
-      <span className={`text-xl font-black ${light ? "text-white" : "text-red-600"}`}>COTISER</span>
+      <span className={`text-xl font-black ${light ? "text-white" : "text-blue-50"}`}>COTISER</span>
     </Link>
   );
 }

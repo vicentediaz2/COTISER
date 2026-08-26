@@ -19,7 +19,7 @@ export function DifferenceSection({ differences }: DifferenceSectionProps) {
           description="Una herramienta simple para ordenar tu proceso comercial y responder con más rapidez y claridad."
         />
 
-        <div className="mt-12 grid gap-5 md:grid-cols-4">
+        <div className="mt-12 grid grid-cols-2 gap-5 md:grid-cols-4">
           {differences.map((difference) => (
             <article
               key={difference.title}

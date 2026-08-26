@@ -78,7 +78,7 @@ const differences = [
       "El código de la aplicación está disponible públicamente, ofreciendo mayor transparencia y libertad.",
   },
   {
-    title: "Para independientes",
+    title: "Para autónomos",
     iconPath: "/svg/independientes.svg",
     description:
       "Diseñada pensando en freelances y pequeños negocios que necesitan una herramienta sencilla para trabajar con sus clientes.",
