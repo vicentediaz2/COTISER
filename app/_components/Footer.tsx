@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import packageJson from "../../package.json";
 
-const repositoryUrl = "https://github.com/vicentediaz2/cotizapro";
+const repositoryUrl = "https://github.com/vicentediaz2/COTISER";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();

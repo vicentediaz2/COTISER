@@ -17,9 +17,9 @@ const labels: Record<string, string> = { pendiente: "Pendiente", enviada: "Envia
 const badgeColors: Record<string, string> = {
   pendiente: "bg-blue-50 text-blue-700",
   enviada: "bg-amber-50 text-amber-700",
-  aprobada: "bg-red-50 text-red-700",
+  aprobada: "bg-green-50 text-green-700",
   rechazada: "bg-red-50 text-red-700",
-  vencida: "bg-slate-100 text-slate-700",
+  vencida: "bg-red-50 text-red-700",
 };
 
 export function QuotationView({ quotation, onClose }: { quotation: ViewQuotation; onClose: () => void }) {
