@@ -23,7 +23,6 @@ export async function updateSession(request: NextRequest) {
   const { data } = await supabase.auth.getClaims();
   const isPrivateRoute =
     request.nextUrl.pathname.startsWith("/panel") ||
-    request.nextUrl.pathname.startsWith("/cotizaciones") ||
     request.nextUrl.pathname.startsWith("/perfil");
 
   if (isPrivateRoute && !data?.claims) {

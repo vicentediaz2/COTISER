@@ -9,8 +9,8 @@ export function FeaturesSection({ features }: FeaturesSectionProps) {
     <section id="funcionalidades" className="bg-white px-6 py-20 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionIntro
-          title="Todo lo que necesitas para cotizar sin Problemas."
-          description="Un panel pensado para el día a día comercial: desde el registro de clientes hasta el historial de propuestas, todo en un solo lugar."
+          title="Todo lo que necesitas para cotizar tus servicios"
+          description="Administra clientes, reutiliza tus servicios y crea documentos con precios, descuentos e impuestos desde un solo lugar."
         />
         <div className="mt-12">
           <DraggableCarousel label="Funcionalidades de Cotiser">

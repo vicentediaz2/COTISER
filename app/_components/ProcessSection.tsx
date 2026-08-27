@@ -13,8 +13,8 @@ export function ProcessSection({ steps }: ProcessSectionProps) {
       <div className="mx-auto  grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <SectionIntro
           tone="sky"
-          title="Crea una cotización en 3 pasos."
-          description="Con 3 simples pasos puedes crear todas las cotizaciones que nesesitas reutilizando la informacion clave."
+          title="Cómo crear una cotización profesional en 3 pasos"
+          description="Reutiliza la información de tu negocio para responder más rápido y presentar una propuesta ordenada a cada cliente."
         />
 
         <div className="grid gap-4">

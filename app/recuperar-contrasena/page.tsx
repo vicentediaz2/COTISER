@@ -1,10 +1,16 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { AuthShell } from "@/app/_components/AuthShell";
 import { FormMessage } from "@/app/_components/FormMessage";
 import { requestPasswordReset } from "@/app/auth/actions";
 import { hasSupabaseEnv } from "@/lib/supabase/env";
 
 type Props = { searchParams: Promise<{ error?: string; mensaje?: string }> };
+
+export const metadata: Metadata = {
+  title: "Recuperar contraseña",
+  robots: { index: false, follow: false },
+};
 
 export default async function ForgotPasswordPage({ searchParams }: Props) {
   const params = await searchParams;

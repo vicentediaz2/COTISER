@@ -1,6 +1,8 @@
+import type { ReactNode } from "react";
+
 type SectionIntroProps = {
-  title: string;
-  description: string;
+  title: ReactNode;
+  description: ReactNode;
   tone?: "light" | "sky" | "blue";
 };
 

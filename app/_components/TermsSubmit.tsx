@@ -29,7 +29,7 @@ export function TermsSubmit({ configured }: Props) {
         </span>
       </label>
       <button disabled={!configured || !accepted} className="primary-button w-full disabled:cursor-not-allowed disabled:opacity-50">
-        Crear cuenta
+        Crear cuenta gratis
       </button>
     </>
   );

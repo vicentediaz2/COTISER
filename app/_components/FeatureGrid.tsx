@@ -14,8 +14,15 @@ export function FeatureGrid({ features }: FeatureGridProps) {
     <section id="beneficios" className="bg-white px-6 py-20 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionIntro
-          title="¿Sigues creando tus cotizaciones manualmente?"
-          description="Cuando las cotizaciones están repartidas entre documentos, carpetas y conversaciones, es fácil perder información, cometer errores o perder tiempo creando el mismo documento una y otra vez."
+          title="Presenta tus servicios con un documento claro y profesional"
+          description={
+            <>
+              Una cotización, también llamada presupuesto o propuesta de
+              servicios, explica qué trabajo realizarás, cuánto cuesta y bajo
+              qué condiciones. <span className="font-black">COTISER</span> te
+              permite crearla sin empezar desde cero cada vez.
+            </>
+          }
         />
 
         <div className="mt-12 grid gap-5 md:grid-cols-3">

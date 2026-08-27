@@ -1,10 +1,16 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { AuthShell } from "@/app/_components/AuthShell";
 import { FormMessage } from "@/app/_components/FormMessage";
 import { PasswordField } from "@/app/_components/PasswordField";
 import { resetPassword } from "@/app/auth/actions";
 
 type Props = { searchParams: Promise<{ error?: string }> };
+
+export const metadata: Metadata = {
+  title: "Restablecer contraseña",
+  robots: { index: false, follow: false },
+};
 
 export default async function ResetPasswordPage({ searchParams }: Props) {
   const { error } = await searchParams;

@@ -108,9 +108,9 @@ La app trabaja con la sesion del usuario autenticado y las tablas usan RLS para 
 
 - [`app/auth/actions.ts`](./app/auth/actions.ts): registro, login y cierre de sesion.
 - [`app/auth/callback/route.ts`](./app/auth/callback/route.ts): callback de autenticacion.
-- [`app/cotizaciones/actions.ts`](./app/cotizaciones/actions.ts): escritura de clientes, servicios y cotizaciones.
-- [`app/cotizaciones/page.tsx`](./app/cotizaciones/page.tsx): panel principal.
-- [`app/cotizaciones/_components/QuotationForm.tsx`](./app/cotizaciones/_components/QuotationForm.tsx): formulario de cotizacion.
+- [`app/panel/actions.ts`](./app/panel/actions.ts): escritura de clientes, servicios y cotizaciones.
+- [`app/panel/page.tsx`](./app/panel/page.tsx): panel principal.
+- [`app/panel/_components/QuotationForm.tsx`](./app/panel/_components/QuotationForm.tsx): formulario de cotizacion.
 - [`supabase/migrations/20260715000000_initial_schema.sql`](./supabase/migrations/20260715000000_initial_schema.sql): esquema inicial de Supabase.
 
 ## Scripts

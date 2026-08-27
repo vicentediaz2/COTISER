@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { LandingHeader } from "./LandingHeader";
 
@@ -12,25 +11,31 @@ export function HeroSection() {
       <div className="mx-auto flex min-h-[72svh] max-w-7xl flex-col justify-center px-6 pb-12 pt-10 lg:px-8">
         <div className="max-w-2xl">
           <h1 className="text-5xl font-semibold leading-tight text-white sm:text-6xl lg:text-7xl">
-            Más que <span className="text-blue-50">cotizar</span>. Haz que te <span className="text-blue-50">elijan</span>.
+            Crea <span className="text-blue-50 font-black">cotizaciones</span> profesionales para ofrecer tus servicios
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-8 text-blue-50/90">
-            Crea cotizaciones profesionales en minutos, mantén tu negocio organizado y presenta tus servicios de la forma que merecen.
+            <span className="font-black">COTISER</span> te ayuda a preparar
+            presupuestos claros con tu logo, datos de contacto, servicios,
+            precios e impuestos. Descárgalos en PDF o ábrelos como HTML y
+            envíalos por el medio que prefieras.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/registro"
               className="inline-flex min-h-12 items-center justify-center rounded-lg bg-white px-6 py-3 text-base font-semibold text-blue-700 shadow-sm transition hover:bg-blue-50"
             >
-              Crear mi cuenta
+              Crear una cotización gratis
             </Link>
             <a
               href="#funcionalidades"
               className="inline-flex min-h-12 items-center justify-center rounded-lg border border-white/30 px-6 py-3 text-base font-semibold text-white transition hover:bg-white/10"
             >
-              Comó Funciona
+              Ver cómo funciona
             </a>
           </div>
+          <p className="mt-5 text-sm font-semibold text-blue-100">
+            Gratis y sin suscripción. Tú mantienes el control de tus documentos.
+          </p>
         </div>
       </div>
     </section>

@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import { getSupabaseEnv } from "@/lib/supabase/env";
 import { createClient } from "@/lib/supabase/server";
-import { QuotationHtmlDocument, type HtmlOrganization, type HtmlQuotation } from "../../cotizaciones/_components/QuotationHtmlDocument";
+import { QuotationHtmlDocument, type HtmlOrganization, type HtmlQuotation } from "../_components/QuotationHtmlDocument";
 
 export const dynamic = "force-dynamic";
 

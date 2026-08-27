@@ -1,11 +1,34 @@
 import type { Metadata } from "next";
 import { ConditionalFooter } from "./_components/ConditionalFooter";
+import { siteUrl } from "@/lib/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Cotiser | Cotizaciones profesionales",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Cotiser | Cotizaciones profesionales gratis",
+    template: "%s | Cotiser",
+  },
   description:
-    "Crea, organiza y consulta cotizaciones profesionales para tu negocio.",
+    "Crea, organiza y descarga cotizaciones profesionales gratis para ofrecer tus servicios.",
+  applicationName: "Cotiser",
+  authors: [{ name: "Vicente Díaz" }],
+  creator: "Vicente Díaz",
+  publisher: "Cotiser",
+  category: "business",
+  keywords: [
+    "crear cotización",
+    "cotizaciones gratis",
+    "presupuesto de servicios",
+    "propuesta de servicios",
+    "cotizador online",
+    "cotizaciones Chile",
+  ],
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
 };
 
 export default function RootLayout({

@@ -10,8 +10,18 @@ export function WhoForSection({ items }: WhoForSectionProps) {
       <div className="mx-auto max-w-7xl">
         <SectionIntro
           tone="sky"
-          title="¿Para quién es Cotiser?"
-          description="Si envías propuestas, precios o presupuestos, Cotiser está pensado para ahorrarte tiempo y errores."
+          title={
+            <>
+              ¿Para quién es <span className="font-black">COTISER</span>?
+            </>
+          }
+          description={
+            <>
+              <span className="font-black">COTISER</span> está pensado para
+              emprendedores y pequeños negocios de Chile y Latinoamérica que
+              venden servicios y quieren transmitir mayor confianza.
+            </>
+          }
         />
         <div className="mt-12">
           <DraggableCarousel label="Perfiles para los que Cotiser está pensado">
