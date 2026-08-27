@@ -8,7 +8,7 @@ export function LandingHeader() {
       <div className={headerInner}>
         <Brand light />
         <div className={headerActions}>
-          <Link href="/iniciar-sesion" className={`${headerActionGhostLight} hidden sm:inline-flex`}>Ingresar</Link>
+          <Link href="/iniciar-sesion" className={`${headerActionGhostLight}`}>Ingresar</Link>
           <Link href="/registro" className={`inline-flex ${headerActionSolidLight}`}>Crear cuenta</Link>
         </div>
       </div>

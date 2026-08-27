@@ -12,7 +12,7 @@ export function FeaturesSection({ features }: FeaturesSectionProps) {
           title="Todo lo que necesitas para cotizar sin Problemas."
           description="Un panel pensado para el día a día comercial: desde el registro de clientes hasta el historial de propuestas, todo en un solo lugar."
         />
-        <div className="mt-12 [mask-image:linear-gradient(to_right,transparent,black_3%,black_97%,transparent)]">
+        <div className="mt-12">
           <DraggableCarousel label="Funcionalidades de Cotiser">
             {features.map((feature) => (
               <article key={feature.title} className="w-72 shrink-0 snap-start rounded-lg border border-blue-100 bg-white p-6 shadow-sm shadow-blue-950/5 sm:w-80">

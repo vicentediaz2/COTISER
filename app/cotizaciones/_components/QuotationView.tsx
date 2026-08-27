@@ -29,8 +29,16 @@ export function QuotationView({ quotation, onClose }: { quotation: ViewQuotation
   const tax = Math.round((quotation.subtotal - discountAmount) * taxRate / 100);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/45 p-4" role="dialog" aria-modal="true" aria-labelledby="view-quotation-title" onMouseDown={onClose}>
-      <div className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-xl bg-white p-6 shadow-2xl sm:p-8" onMouseDown={(event) => event.stopPropagation()}>
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/45 p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="view-quotation-title"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+    >
+      <div className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-xl bg-white p-6 shadow-2xl sm:p-8">
         <div className="mb-6 flex items-start justify-between gap-4">
           <div>
             <div className="flex flex-wrap items-center gap-2">
@@ -41,7 +49,7 @@ export function QuotationView({ quotation, onClose }: { quotation: ViewQuotation
             <h2 id="view-quotation-title" className="mt-2 text-2xl font-semibold">{quotation.clientName}</h2>
             <p className="mt-1 text-sm text-slate-500">{new Date(quotation.date).toLocaleDateString("es-CL")}</p>
           </div>
-          <button type="button" onClick={onClose} aria-label="Cerrar" className="rounded-lg px-3 py-2 text-xl leading-none text-slate-500 hover:bg-slate-100">×</button>
+          <button type="button" onClick={onClose} aria-label="Cerrar" className="rounded-lg px-3 py-2 text-xl leading-none text-slate-500 hover:bg-slate-100 min-h-11 min-w-11 flex items-center justify-center">×</button>
         </div>
 
         {quotation.items.length ? (

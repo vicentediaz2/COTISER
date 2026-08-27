@@ -16,10 +16,11 @@ export function PasswordField({ name, label, autoComplete, placeholder, showRequ
   const [password, setPassword] = useState("");
 
   return (
-    <label className="row-end-3 gap-2 text-sm font-medium text-slate-700">
-      {label}
-      <span className="relative">
+    <div className="grid gap-2 text-sm font-medium text-slate-700">
+      <label htmlFor={name}>{label}</label>
+      <div className="relative">
         <input
+          id={name}
           name={name}
           type={visible ? "text" : "password"}
           required
@@ -32,13 +33,13 @@ export function PasswordField({ name, label, autoComplete, placeholder, showRequ
         <button
           type="button"
           onClick={() => setVisible((current) => !current)}
-          className="absolute inset-y-0 right-0 px-3 text-xs font-semibold text-blue-700 hover:text-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset"
+          className="absolute inset-y-0 right-0 z-10 flex items-center px-3 text-xs font-semibold text-blue-700 hover:text-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset min-h-11 min-w-11"
           aria-label={visible ? `Ocultar ${label.toLowerCase()}` : `Mostrar ${label.toLowerCase()}`}
           aria-pressed={visible}
         >
           {visible ? "Ocultar" : "Mostrar"}
         </button>
-      </span>
+      </div>
       {showRequirements && (
         <ul className="space-y-1 text-xs font-normal text-slate-500" aria-live="polite">
           {passwordRequirements.map(({ key, label: requirement, test }) => {
@@ -47,6 +48,6 @@ export function PasswordField({ name, label, autoComplete, placeholder, showRequ
           })}
         </ul>
       )}
-    </label>
+    </div>
   );
 }

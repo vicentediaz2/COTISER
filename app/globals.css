@@ -78,7 +78,7 @@ body {
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
-  touch-action: pan-y;
+  touch-action: pan-x;
 }
 
 .carousel-viewport.is-dragging {

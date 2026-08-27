@@ -12,14 +12,14 @@ export function TermsSubmit({ configured }: Props) {
 
   return (
     <>
-      <label className="flex items-start gap-2 text-sm text-slate-700">
+      <label className="flex items-start gap-3 text-sm text-slate-700">
         <input
           type="checkbox"
           name="accept_terms"
           required
           checked={accepted}
           onChange={(event) => setAccepted(event.target.checked)}
-          className="mt-0.5 h-4 w-4 rounded border-slate-300 text-blue-700 focus:ring-blue-600"
+          className="mt-0.5 h-5 w-5 rounded border-slate-300 text-blue-700 focus:ring-blue-600"
         />
         <span>
           Acepto los{" "}

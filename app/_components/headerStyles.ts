@@ -5,7 +5,7 @@ export const headerInner = "mx-auto flex max-w-7xl items-center justify-between 
 export const headerActions = "flex items-center gap-3";
 
 export const headerActionBase =
-  "items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition";
+  "inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition";
 
 export const headerActionSecondary = `${headerActionBase} border border-blue-100 text-blue-700 hover:bg-blue-50`;
 
