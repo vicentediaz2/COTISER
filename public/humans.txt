@@ -1,0 +1,39 @@
+                                                                                                                              
+                                                                                                                              
+        XXXXXXXXXXXX       XXXXXXXXXXX     XXXXXXXXXXXXXXXXXX XXXXX    XXXXXXXXXXXX    XXXXXXXXXXXXXXXX  XXXXXXXXXXXXXX       
+      XXXXXXXXXXXXXXXX   XXXXXXXXXXXXXXXX  XXXXXXXXXXXXXXXXXX XXXXX  XXXXXXXXXXXXXXXX  XXXXXXXXXXXXXXXX  XXXXXXXXXXXXXXXX     
+    XXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXX XXXXX  XXXXXXXXXXXXXXX   XXXXXXXXXXXXXXXX  XXXXXXXXXXXXXXXXX    
+    XXXXXX       XXX   XXXXXX       XXXXXXX      XXXXX        XXXXX  XXXXXX      XX    XXXXXX            XXXXX      XXXXXX    
+   XXXXXX             XXXXXX         XXXXXX      XXXXX        XXXXX  XXXXXXXXXXXXXX    XXXXXXXXXXXX      XXXXXXXXXXXXXXXXX    
+   XXXXXX             XXXXXX          XXXXX      XXXXX        XXXXX   XXXXXXXXXXXXXXX  XXXXXXXXXXXX      XXXXXXXXXXXXXXXX     
+   XXXXXX             XXXXXX         XXXXXX      XXXXX        XXXXX      XXXXXXXXXXXXX XXXXXXXXXXXX      XXXXXXXXXXXXXX       
+    XXXXXXX      XXX   XXXXXXX     XXXXXXXX      XXXXX        XXXXX   XXX       XXXXXX XXXXXX            XXXXX    XXXXXX      
+     XXXXXXXXXXXXXXXXX  XXXXXXXXXXXXXXXXXX       XXXXX        XXXXX XXXXXXXXXXXXXXXXX  XXXXXXXXXXXXXXXX  XXXXX     XXXXXX     
+      XXXXXXXXXXXXXXX    XXXXXXXXXXXXXXX         XXXXX        XXXXX  XXXXXXXXXXXXXXXX  XXXXXXXXXXXXXXXX  XXXXX     XXXXXXX    
+        XXXXXXXXXXX        XXXXXXXXXXX           XXXXX        XXXXX     XXXXXXXXXXX    XXXXXXXXXXXXXXXX  XXXXX      XXXXXX    
+                                                                                                                              
+                                                                                                                              
+
+/* TEAM */
+    Developer: Vicente Diaz
+    Complete programming of the first version
+    GitHub: https://github.com/vicentediaz2
+    Santiago, Chile
+
+    Designer: Constanza Pacheco
+    Graphic design, logo design, and style consultant
+    Behance: https://www.behance.net/constanzapacheco
+    Santiago, Chile
+
+
+/* SITE */
+    Name: Cotiser
+    URL: https://cotiser.is-a.dev
+    Language: Español (Chile)
+    Built with: Next.js, Supabase, Tailwind CSS
+    License: AGPL-3.0
+
+/* THANKS */
+    Supabase: https://supabase.com
+    Vercel: https://vercel.com/
+    Next.js: https://nextjs.org
