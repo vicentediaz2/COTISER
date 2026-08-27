@@ -114,8 +114,8 @@ export default function CookiesPage() {
         </h2>
         <p className="legal-p">
           Para consultas sobre esta política:{" "}
-          <a href="mailto:vicentedaniel.diaz2+cotiser@gmail.com" className="legal-link">
-            vicentedaniel.diaz2+cotiser@gmail.com
+          <a href="mailto:contacto@cotiser.is-a.dev" className="legal-link">
+            contacto@cotiser.is-a.dev
           </a>
         </p>
       </section>

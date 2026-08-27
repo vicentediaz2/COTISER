@@ -20,10 +20,10 @@ export default function TerminosPage() {
         </h2>
         <p className="legal-p">
           Al crear una cuenta y utilizar{" "}
-          <span className="font-black">COTISER</span> (&quot;la Plataforma&quot;,
-          &quot;el Servicio&quot;), operado por Vicente Daniel Diaz Artigas, con
-          domicilio en Santiago, Chile, aceptas quedar sujeto a estos Términos y
-          Condiciones. Si no estás de acuerdo, no debes utilizar el Servicio.
+          <span className="font-black">COTISER</span> el Servicio, operado por 
+          Vicente Daniel Diaz Artigas, con domicilio en Santiago, Chile, 
+          aceptas quedar sujeto a estos Términos y Condiciones. Si no estás 
+          de acuerdo, no debes utilizar el Servicio.
         </p>
       </section>
 
@@ -93,6 +93,28 @@ export default function TerminosPage() {
           <strong>encargado del tratamiento</strong> de dichos datos por cuenta
           del Usuario, quien es el <strong>responsable del tratamiento</strong>{" "}
           frente a sus propios clientes.
+        </p>
+        <p className="legal-p">
+          En calidad de encargado, <span className="font-black">COTISER</span>{" "}
+          tratará dichos datos exclusivamente conforme a las instrucciones del
+          Usuario contenidas en estos Términos y en las funcionalidades que el
+          Usuario utilice en la Plataforma. No venderemos, cederemos, usaremos
+          para publicidad, elaboraremos perfiles ni analizaremos estos datos
+          para fines propios o comerciales.
+        </p>
+        <p className="legal-p">
+          <span className="font-black">COTISER</span> aplica medidas de
+          seguridad y confidencialidad adecuadas y utiliza a Supabase y Vercel
+          como proveedores que actúan como subencargados para alojar y operar
+          el Servicio. Estos proveedores procesan datos fuera de Chile bajo las
+          garantías descritas en la Política de Privacidad.
+        </p>
+        <p className="legal-p">
+          Prestaremos asistencia razonable al Usuario ante solicitudes de
+          ejercicio de derechos de sus clientes e incidentes de seguridad que
+          afecten dichos datos. Al término del Servicio, los datos serán
+          eliminados o anonimizados conforme a la Política de Privacidad, salvo
+          que exista una obligación legal de conservarlos.
         </p>
       </section>
 
@@ -172,7 +194,7 @@ export default function TerminosPage() {
           </li>
           <li>
             La marca, nombre comercial y logo de <span className="font-black">COTISER</span>, que se reservan
-            como identificadores del servicio prestado en [dominio], independientemente de que el código sea
+            como identificadores del servicio prestado en cotiser.is-a.dev, independientemente de que el código sea
             de fuente abierta. Terceros pueden ejecutar su propia instancia del software bajo AGPLv3, pero no
             están autorizados a usar el nombre &quot;<span className="font-black">COTISER</span>&quot; ni su
             identidad visual para presentar dicha instancia como el servicio oficial.
@@ -200,8 +222,8 @@ export default function TerminosPage() {
         <p className="legal-p">
           El Usuario puede solicitar la eliminación de su cuenta y datos
           asociados en cualquier momento, escribiendo a{" "}
-          <a href="mailto:vicentedaniel.diaz2@gmail.com" className="legal-link">
-            vicentedaniel.diaz2@gmail.com
+          <a href="mailto:contacto@cotiser.is-a.dev" className="legal-link">
+            contacto@cotiser.is-a.dev
           </a>
           . Nos reservamos el derecho de suspender o eliminar cuentas que
           incumplan gravemente estos Términos, previa notificación cuando sea
@@ -239,8 +261,8 @@ export default function TerminosPage() {
         </h2>
         <p className="legal-p">
           Para consultas sobre estos Términos:{" "}
-          <a href="mailto:vicentedaniel.diaz2@gmail.com" className="legal-link">
-            vicentedaniel.diaz2@gmail.com
+          <a href="mailto:contacto@cotiser.is-a.dev" className="legal-link">
+            contacto@cotiser.is-a.dev
           </a>
         </p>
       </section>

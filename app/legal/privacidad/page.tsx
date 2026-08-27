@@ -30,8 +30,8 @@ export default function PrivacidadPage() {
         </h2>
         <p className="legal-p">
           Vicente Daniel Diaz Artigas, contacto:{" "}
-          <a href="mailto:vicentedaniel.diaz2@gmail.com" className="legal-link">
-            vicentedaniel.diaz2@gmail.com
+          <a href="mailto:contacto@cotiser.is-a.dev" className="legal-link">
+            contacto@cotiser.is-a.dev
           </a>
         </p>
       </section>
@@ -78,22 +78,45 @@ export default function PrivacidadPage() {
 
       <section className="legal-section">
         <h2 className="legal-heading">
-          <span className="legal-num">04</span>Dónde se almacenan los datos
+          <span className="legal-num">04</span>Base de licitud del tratamiento
         </h2>
         <p className="legal-p">
-          Los datos se almacenan en la infraestructura de Supabase (base de
-          datos y autenticación) y la aplicación se despliega en Vercel.
-          Nuestros servidores están ubicados en EE.UU., por lo que tus datos
-          podrían almacenarse o procesarse fuera de Chile; aun así, adoptamos las
-          medidas contractuales y técnicas razonables para asegurar que dicha
-          transferencia internacional cumpla con estándares adecuados de
-          protección.
+          Tratamos los datos de la cuenta y los datos necesarios para operar la
+          Plataforma porque son necesarios para celebrar y ejecutar el contrato
+          de uso del Servicio, atender solicitudes del Usuario y cumplir las
+          obligaciones legales aplicables.
+        </p>
+        <p className="legal-p">
+          Cuando una finalidad requiera consentimiento, lo solicitaremos de
+          forma previa, específica e informada. El consentimiento podrá
+          retirarse en cualquier momento, sin afectar la licitud del tratamiento
+          realizado antes de su retiro.
         </p>
       </section>
 
       <section className="legal-section">
         <h2 className="legal-heading">
-          <span className="legal-num">05</span>Seguridad
+          <span className="legal-num">05</span>Dónde se almacenan los datos
+        </h2>
+        <p className="legal-p">
+          Los datos se almacenan en la infraestructura de Supabase (base de
+          datos y autenticación), en la región us-west-2 (West US, Oregon),
+          Estados Unidos. La aplicación se despliega en Vercel. Por ello, los
+          datos pueden ser almacenados o procesados fuera de Chile.
+        </p>
+        <p className="legal-p">
+          Exigimos contractualmente a nuestros proveedores de infraestructura
+          que traten los datos sólo para prestar el Servicio, mantengan su
+          confidencialidad y seguridad y apliquen garantías adecuadas para la
+          transferencia internacional. Supabase y Vercel actúan como
+          subencargados respecto de los datos necesarios para alojar, asegurar
+          y operar el Servicio.
+        </p>
+      </section>
+
+      <section className="legal-section">
+        <h2 className="legal-heading">
+          <span className="legal-num">06</span>Seguridad
         </h2>
         <p className="legal-p">
           Aplicamos medidas técnicas y organizativas razonables para proteger
@@ -122,7 +145,7 @@ export default function PrivacidadPage() {
 
       <section className="legal-section">
         <h2 className="legal-heading">
-          <span className="legal-num">06</span>Cookies
+          <span className="legal-num">07</span>Cookies
         </h2>
         <p className="legal-p">
           Utilizamos únicamente una cookie técnica esencial para mantener la
@@ -137,7 +160,7 @@ export default function PrivacidadPage() {
 
       <section className="legal-section">
         <h2 className="legal-heading">
-          <span className="legal-num">07</span>Derechos del titular de los datos (Derechos ARCO)
+          <span className="legal-num">08</span>Derechos del titular de los datos
         </h2>
         <p className="legal-p">
           Todo titular de datos personales (Usuario o cliente registrado por un
@@ -146,36 +169,54 @@ export default function PrivacidadPage() {
         <ul className="legal-list">
           <li><strong>Acceso:</strong> conocer qué datos suyos tratamos.</li>
           <li><strong>Rectificación:</strong> corregir datos inexactos o desactualizados.</li>
-          <li><strong>Cancelación:</strong> solicitar la eliminación de sus datos cuando corresponda.</li>
+          <li><strong>Supresión:</strong> solicitar la eliminación de sus datos cuando corresponda.</li>
           <li><strong>Oposición:</strong> oponerse a un tratamiento específico.</li>
+          <li><strong>Portabilidad:</strong> obtener sus datos en un formato estructurado y de uso común, cuando corresponda.</li>
+          <li><strong>Bloqueo:</strong> solicitar la suspensión temporal de un tratamiento en los casos que correspondan.</li>
         </ul>
         <p className="legal-p">
           Para ejercer estos derechos, escribe a{" "}
-          <a href="mailto:vicentedaniel.diaz2@gmail.com" className="legal-link">
-            vicentedaniel.diaz2@gmail.com
+          <a href="mailto:contacto@cotiser.is-a.dev" className="legal-link">
+            contacto@cotiser.is-a.dev
           </a>
           . Si el dato pertenece a un cliente de un Usuario (no a un Usuario
           registrado directamente), la solicitud debe canalizarse a través del
           Usuario responsable de esos datos, o bien la reenviaremos a dicho
           Usuario para su gestión.
         </p>
-      </section>
-
-      <section className="legal-section">
-        <h2 className="legal-heading">
-          <span className="legal-num">08</span>Conservación de los datos
-        </h2>
         <p className="legal-p">
-          Conservamos los datos mientras la cuenta del Usuario permanezca activa.
-          Si el Usuario solicita la eliminación de su cuenta, eliminaremos o
-          anonimizaremos sus datos y los de sus registros asociados dentro de un
-          plazo razonable, salvo obligación legal de conservarlos por más tiempo.
+          El ejercicio de estos derechos es gratuito. Podremos solicitar los
+          antecedentes estrictamente necesarios para verificar la identidad de
+          quien presenta la solicitud. Acusaremos recibo y responderemos dentro
+          de 30 días corridos desde su recepción. Si no podemos acogerla,
+          informaremos la decisión y sus fundamentos.
         </p>
       </section>
 
       <section className="legal-section">
         <h2 className="legal-heading">
-          <span className="legal-num">09</span>Menores de edad
+          <span className="legal-num">09</span>Conservación de los datos
+        </h2>
+        <p className="legal-p">
+          Conservamos los datos mientras la cuenta del Usuario permanezca activa.
+          Si el Usuario solicita la eliminación de su cuenta, eliminaremos o
+          anonimizaremos sus datos y los de sus registros asociados de forma
+          permanente dentro de un plazo máximo de 30 días corridos desde la
+          recepción de la solicitud, salvo obligación legal de conservarlos por
+          más tiempo.
+        </p>
+        <p className="legal-p">
+          Los respaldos que puedan contener datos personales se conservarán
+          únicamente para fines de recuperación ante incidentes y se eliminarán
+          o sobrescribirán dentro del mismo plazo máximo de 30 días. Durante ese
+          período, no usaremos los datos respaldados para ninguna finalidad
+          distinta de la seguridad y recuperación del Servicio.
+        </p>
+      </section>
+
+      <section className="legal-section">
+        <h2 className="legal-heading">
+          <span className="legal-num">10</span>Menores de edad
         </h2>
         <p className="legal-p">
           El Servicio está dirigido a personas naturales o jurídicas mayores de
@@ -186,7 +227,7 @@ export default function PrivacidadPage() {
 
       <section className="legal-section">
         <h2 className="legal-heading">
-          <span className="legal-num">10</span>Cambios a esta política
+          <span className="legal-num">11</span>Cambios a esta política
         </h2>
         <p className="legal-p">
           Podremos actualizar esta Política periódicamente, especialmente con
@@ -198,12 +239,12 @@ export default function PrivacidadPage() {
 
       <section className="legal-section">
         <h2 className="legal-heading">
-          <span className="legal-num">11</span>Contacto
+          <span className="legal-num">12</span>Contacto
         </h2>
         <p className="legal-p">
           Para consultas o ejercicio de derechos:{" "}
-          <a href="mailto:vicentedaniel.diaz2+cotiser@gmail.com" className="legal-link">
-            vicentedaniel.diaz2+cotiser@gmail.com
+          <a href="mailto:contacto@cotiser.is-a.dev" className="legal-link">
+            contacto@cotiser.is-a.dev
           </a>
         </p>
       </section>
