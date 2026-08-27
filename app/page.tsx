@@ -24,7 +24,7 @@ export const metadata: Metadata = {
       "Crea, organiza y descarga cotizaciones profesionales para ofrecer tus servicios.",
     images: [
       {
-        url: "/hero-cotizapro.png",
+        url: "elementos-graficos/hero-cotiser.png",
         width: 1680,
         height: 945,
         alt: "Cotiser, herramienta gratuita para crear cotizaciones profesionales",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: "Cotiser: crea cotizaciones profesionales gratis",
     description:
       "Prepara presupuestos con tu logo, servicios y precios, y descárgalos en PDF o HTML.",
-    images: ["/hero-cotizapro.png"],
+    images: ["/hero-cotiser.png"],
   },
 };
 
