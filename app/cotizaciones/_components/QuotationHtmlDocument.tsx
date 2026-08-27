@@ -31,8 +31,7 @@ export function QuotationHtmlDocument({ quotation, organization, fullPage = fals
           <div className="text-left sm:text-right">
             <p className="text-sm font-semibold uppercase tracking-widest text-blue-700">Cotización</p>
             <p className="mt-2 text-2xl font-bold">#{quotation.id.slice(0, 8).toUpperCase()}</p>
-            <p className="mt-1 text-sm text-slate-600">{new Date(quotation.date).toLocaleDateString("es-CL")}</p>
-            <p className="mt-2 text-sm font-medium text-slate-600">Creada exclusivamente para {quotation.clientName || "el cliente"} el {new Date().toLocaleDateString("es-CL")}.</p>
+            <p className="mt-2 text-sm font-medium text-slate-600">Creada exclusivamente para {quotation.clientName || "el cliente"} el {new Date(quotation.date).toLocaleDateString("es-CL")}.</p>
             <p className="mt-2 text-sm font-semibold text-slate-700">{labels[quotation.status] ?? quotation.status}</p>
           </div>
         </header>

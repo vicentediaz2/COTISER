@@ -227,7 +227,7 @@ export async function updateQuotation(formData: FormData) {
   if (lookupError || !quotation) fail("No se pudo encontrar la cotizacion.");
   if (quotation.estado === "aprobada") fail("Una cotizacion aprobada no se puede modificar.");
 
-  const { error } = await supabase.from("cotizacion").update({ estado: status }).eq("id_cotizacion", id);
+  const { error } = await supabase.from("cotizacion").update({ estado: status, fecha: new Date().toISOString() }).eq("id_cotizacion", id);
   if (error) fail(`No se pudo actualizar la cotizacion: ${error.message}`);
   revalidatePath("/panel");
   redirect("/panel?mensaje=Cotizacion%20actualizada%20correctamente.");
@@ -256,7 +256,7 @@ export async function editQuotation(formData: FormData) {
 
   // El cliente se muestra como referencia, pero no se puede modificar desde
   // esta edición. Nunca confiamos en un campo oculto para cambiar su relación.
-  const { error: quotationError } = await supabase.from("cotizacion").update({ total_cotizado: totals.total, subtotal_general: totals.subtotal, descuento: totals.discount, impuesto: totals.taxRate, observacion: notes }).eq("id_cotizacion", id);
+  const { error: quotationError } = await supabase.from("cotizacion").update({ total_cotizado: totals.total, subtotal_general: totals.subtotal, descuento: totals.discount, impuesto: totals.taxRate, observacion: notes, fecha: new Date().toISOString() }).eq("id_cotizacion", id);
   if (quotationError) fail(`No se pudo actualizar la cotizacion: ${quotationError.message}`);
 
   const { error: deleteItemsError } = await supabase.from("cotizacionxservicio").delete().eq("id_cotizacion", id);
@@ -279,4 +279,17 @@ export async function deleteQuotation(formData: FormData) {
   const { error } = await supabase.from("cotizacion").delete().eq("id_cotizacion", id);
   if (error) fail(`No se pudo eliminar la cotizacion: ${error.message}`);
   revalidatePath("/panel");
+}
+
+export async function markAsSent(id: string): Promise<string> {
+  const { supabase } = await authenticatedClient();
+  const { data: quotation } = await supabase.from("cotizacion").select("estado").eq("id_cotizacion", id).maybeSingle();
+  const current = quotation?.estado;
+  if (current && current !== "pendiente") return current;
+  if (current === "pendiente") {
+    const { error } = await supabase.from("cotizacion").update({ estado: "enviada", fecha: new Date().toISOString() }).eq("id_cotizacion", id);
+    if (error) return current;
+  }
+  revalidatePath("/panel");
+  return "enviada";
 }

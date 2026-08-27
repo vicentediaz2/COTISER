@@ -18,7 +18,6 @@ const styles = StyleSheet.create({
   headerRight: { alignItems: "flex-end" },
   docLabel: { fontSize: 8, fontFamily: "Helvetica-Bold", color: "#1d4ed8", textTransform: "uppercase" },
   docId: { fontSize: 20, fontFamily: "Helvetica-Bold", marginTop: 6 },
-  docDate: { fontSize: 9, color: "#475569", marginTop: 4 },
   docAudience: { fontSize: 8, color: "#475569", marginTop: 6 },
   docStatus: { fontSize: 9, fontFamily: "Helvetica-Bold", color: "#334155", marginTop: 6 },
   section: { flexDirection: "row", justifyContent: "space-between", marginTop: 20, paddingVertical: 16, borderBottomWidth: 1, borderBottomColor: "#e2e8f0" },
@@ -71,8 +70,7 @@ export function QuotationPdfDocument({ quotation, organization }: { quotation: H
           <View style={styles.headerRight}>
             <Text style={styles.docLabel}>Cotización</Text>
             <Text style={styles.docId}>#{quotation.id.slice(0, 8).toUpperCase()}</Text>
-            <Text style={styles.docDate}>{new Date(quotation.date).toLocaleDateString("es-CL")}</Text>
-            <Text style={styles.docAudience}>Creada exclusivamente para {quotation.clientName || "el cliente"} el {new Date().toLocaleDateString("es-CL")}.</Text>
+            <Text style={styles.docAudience}>Creada exclusivamente para {quotation.clientName || "el cliente"} el {new Date(quotation.date).toLocaleDateString("es-CL")}.</Text>
             <Text style={styles.docStatus}>{labels[quotation.status] ?? quotation.status}</Text>
           </View>
         </View>
