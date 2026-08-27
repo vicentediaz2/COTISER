@@ -13,6 +13,8 @@ El objetivo del proyecto es servir como base abierta para aprender, adaptar o ex
 - Relacion entre cotizaciones y servicios mediante tabla puente.
 - Aislamiento de datos por usuario autenticado con Row Level Security.
 - Montos enteros mostrados en CLP.
+- Gestion de logo y datos de la organizacion desde el perfil.
+- Exportacion de cotizaciones a PDF y a version HTML imprimible.
 
 ## Stack
 
@@ -29,10 +31,6 @@ Primera iteracion funcional.
 
 Pendiente o planificado:
 
-- Gestion de logo.
-- Mejoras visuales del perfil.
-- Exportacion de cotizaciones a PDF.
-- Edicion completa de lineas dentro de una cotizacion existente.
 - Dashboard o metricas comerciales.
 
 ## Requisitos
@@ -96,7 +94,7 @@ El esquema principal esta compuesto por:
 - `cotizacion`: cotizaciones asociadas a un cliente.
 - `cotizacionxservicio`: lineas de servicios incluidas en cada cotizacion.
 
-La columna `usuario.logo` existe en el esquema, pero la gestion de logo queda pendiente para una iteracion futura.
+La organizacion se configura desde `app/perfil`, donde se gestiona el logo y los datos comerciales que aparecen en las cotizaciones.
 
 ## Seguridad
 

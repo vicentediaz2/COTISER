@@ -36,9 +36,9 @@ export function Footer() {
           </div>
           <div className="flex flex-wrap items-center gap-4 border-t border-blue-50 pt-6 text-sm text-white">
             <Link
-                href="/#"
-                className="inline-flex items-center justify-center rounded-lg text-sm font-medium text-white transition hover:text-blue-50"
-              >
+              href="/"
+              className="inline-flex items-center justify-center rounded-lg text-sm font-medium text-white transition hover:text-blue-50"
+            >
               <Image
                 src="/elementos-graficos/isotipo-celeste.svg"
                 alt="Logo de Cotiser"

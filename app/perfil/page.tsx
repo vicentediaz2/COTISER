@@ -51,7 +51,7 @@ export default async function ProfilePage({ searchParams }: Props) {
   const params = await searchParams;
   const organization = profile?.organizacion as OrganizationData | null;
   const logoPath = organization?.logo?.trim() || undefined;
-  const logoUrl = logoPath ? `${getSupabaseEnv().url}/storage/v1/object/public/logos/${logoPath}` : null;
+  const logoUrl = logoPath ? `${getSupabaseEnv().url}/storage/v1/object/public/logos/${logoPath.split("/").map(encodeURIComponent).join("/")}` : null;
 
   return (
     <main className="min-h-screen bg-slate-100 text-slate-950">

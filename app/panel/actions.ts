@@ -221,7 +221,7 @@ export async function updateQuotation(formData: FormData) {
   const { supabase } = await authenticatedClient();
   const id = field(formData, "id");
   const status = field(formData, "status");
-  if (!id || !["pendiente", "enviada", "aprobada", "rechazada"].includes(status)) fail("Cotización no válida.");
+  if (!id || !["pendiente", "aprobada", "rechazada", "vencida", "enviada"].includes(status)) fail("Cotización no válida.");
 
   const { data: quotation, error: lookupError } = await supabase.from("cotizacion").select("estado").eq("id_cotizacion", id).maybeSingle();
   if (lookupError || !quotation) fail("No se pudo encontrar la cotización.");
