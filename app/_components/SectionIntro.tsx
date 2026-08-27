@@ -15,7 +15,7 @@ export function SectionIntro({
 
   return (
     <div className="max-w-3xl">
-      <h2 className={`text-3xl font-bold sm:text-4xl ${titleClass}`}>
+      <h2 className={`text-3xl font-bold text-blue-700 sm:text-4xl ${titleClass}`}>
         {title}
       </h2>
       <p className={`mt-4 text-lg font-semibold leading-8 ${descriptionClass}`}>

@@ -2,13 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import packageJson from "../../package.json";
 
-const repositoryUrl = "https://github.com/vicentediaz2/cotizapro";
+const repositoryUrl = "https://github.com/vicentediaz2/COTISER";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-blue-900 px-6 py-12 lg:px-8">
+    <footer className="bg-blue-900 px-6 py-8 lg:px-6">
       <div className="mx-auto max-w-7xl">
         <div className="space-y-6">
           <div className="flex flex-wrap items-center justify-between gap-4 border-t border-blue-50 pt-6 text-sm text-white">

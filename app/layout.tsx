@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Footer } from "./_components/Footer";
+import { ConditionalFooter } from "./_components/ConditionalFooter";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang="es" className="h-full antialiased">
       <body className="min-h-full flex flex-col">
         <div className="flex flex-1 flex-col">{children}</div>
-        <Footer />
+        <ConditionalFooter />
       </body>
     </html>
   );

@@ -17,9 +17,9 @@ const labels: Record<string, string> = { pendiente: "Pendiente", enviada: "Envia
 const badgeColors: Record<string, string> = {
   pendiente: "bg-blue-50 text-blue-700",
   enviada: "bg-amber-50 text-amber-700",
-  aprobada: "bg-emerald-50 text-emerald-700",
+  aprobada: "bg-green-50 text-green-700",
   rechazada: "bg-red-50 text-red-700",
-  vencida: "bg-slate-100 text-slate-700",
+  vencida: "bg-red-50 text-red-700",
 };
 
 export function QuotationView({ quotation, onClose }: { quotation: ViewQuotation; onClose: () => void }) {
@@ -29,8 +29,16 @@ export function QuotationView({ quotation, onClose }: { quotation: ViewQuotation
   const tax = Math.round((quotation.subtotal - discountAmount) * taxRate / 100);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/45 p-4" role="dialog" aria-modal="true" aria-labelledby="view-quotation-title" onMouseDown={onClose}>
-      <div className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-xl bg-white p-6 shadow-2xl sm:p-8" onMouseDown={(event) => event.stopPropagation()}>
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/45 p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="view-quotation-title"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+    >
+      <div className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-xl bg-white p-6 shadow-2xl sm:p-8">
         <div className="mb-6 flex items-start justify-between gap-4">
           <div>
             <div className="flex flex-wrap items-center gap-2">
@@ -41,14 +49,14 @@ export function QuotationView({ quotation, onClose }: { quotation: ViewQuotation
             <h2 id="view-quotation-title" className="mt-2 text-2xl font-semibold">{quotation.clientName}</h2>
             <p className="mt-1 text-sm text-slate-500">{new Date(quotation.date).toLocaleDateString("es-CL")}</p>
           </div>
-          <button type="button" onClick={onClose} aria-label="Cerrar" className="rounded-lg px-3 py-2 text-xl leading-none text-slate-500 hover:bg-slate-100">×</button>
+          <button type="button" onClick={onClose} aria-label="Cerrar" className="rounded-lg px-3 py-2 text-xl leading-none text-slate-500 hover:bg-slate-100 min-h-11 min-w-11 flex items-center justify-center">×</button>
         </div>
 
         {quotation.items.length ? (
           <div className="overflow-x-auto rounded-lg border border-blue-100">
             <table className="w-full text-left text-sm">
               <thead>
-                <tr className="border-b border-blue-100 bg-blue-50/40 text-xs uppercase tracking-wide text-slate-500">
+                <tr className="border-b border-blue-100 text-xs uppercase tracking-wide text-slate-500">
                   <th className="px-4 py-3 font-medium">Servicio</th>
                   <th className="px-4 py-3 text-right font-medium">Cantidad</th>
                   <th className="px-4 py-3 text-right font-medium">Precio unitario</th>
@@ -81,7 +89,7 @@ export function QuotationView({ quotation, onClose }: { quotation: ViewQuotation
           </div>
         )}
 
-        <div className="mt-4 rounded-lg bg-blue-50/40 p-4">
+        <div className="mt-4 rounded-lg p-4">
           <dl className="grid gap-2 text-sm sm:ml-auto sm:max-w-xs">
             <div className="flex justify-between gap-8"><dt className="text-slate-600">Subtotal</dt><dd className="font-semibold text-slate-900">{format.format(quotation.subtotal)}</dd></div>
             {discountAmount > 0 && <div className="flex justify-between gap-8"><dt className="text-slate-600">Descuento</dt><dd className="font-semibold text-slate-900">-{format.format(discountAmount)}</dd></div>}

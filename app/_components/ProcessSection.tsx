@@ -21,7 +21,7 @@ export function ProcessSection({ steps }: ProcessSectionProps) {
           {steps.map((step, index) => (
             <div
               key={step}
-              className="flex items-center gap-4 rounded-lg border border-blue-100 bg-white p-5 shadow-sm shadow-blue-950/5"
+              className="flex items-start gap-4 rounded-lg border border-blue-100 bg-white p-5 shadow-sm shadow-blue-950/5"
             >
               <span className="grid size-11 shrink-0 place-items-center rounded-lg bg-blue-700 text-sm font-bold text-white">
                 {index + 1}

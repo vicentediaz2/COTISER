@@ -2,13 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { LandingHeader } from "./LandingHeader";
 
-type Metric = {
-  value: string;
-  label: string;
-};
-
-
-
 export function HeroSection() {
   return (
     <section className="relative isolate overflow-hidden bg-blue-950 text-white">
@@ -32,10 +25,10 @@ export function HeroSection() {
               Crear mi cuenta
             </Link>
             <a
-              href="#beneficios"
+              href="#funcionalidades"
               className="inline-flex min-h-12 items-center justify-center rounded-lg border border-white/30 px-6 py-3 text-base font-semibold text-white transition hover:bg-white/10"
             >
-              Ver beneficios
+              Comó Funciona
             </a>
           </div>
         </div>

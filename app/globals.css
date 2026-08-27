@@ -35,10 +35,20 @@
   --color-blue-900: #202b68;
   --color-blue-950: #192251;
 
-  --color-emerald-50: #fbe9ef;
-  --color-emerald-200: #e9aebe;
-  --color-emerald-600: #ad234d;
-  --color-emerald-700: #8e1b3d;
+  --color-red-50: #fbe9ef;
+  --color-red-200: #e9aebe;
+  --color-red-600: #ad234d;
+  --color-red-700: #8e1b3d;
+
+  --color-green-50: #e6f7e6;
+  --color-green-200: #a3d9a3;
+  --color-green-600: #2d7a2d;
+  --color-green-700: #1a5c1a;
+
+  --color-amber-50: #fef3c7;
+  --color-amber-200: #fcd34d;
+  --color-amber-600: #d97706;
+  --color-amber-700: #b45309;
 
   --color-slate-50: #ffffff;
   --color-slate-100: #f5f5f5;
@@ -68,7 +78,7 @@ body {
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
-  touch-action: pan-y;
+  touch-action: pan-x;
 }
 
 .carousel-viewport.is-dragging {

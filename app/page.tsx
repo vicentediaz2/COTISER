@@ -78,7 +78,7 @@ const differences = [
       "El código de la aplicación está disponible públicamente, ofreciendo mayor transparencia y libertad.",
   },
   {
-    title: "Para independientes",
+    title: "Para autónomos",
     iconPath: "/svg/independientes.svg",
     description:
       "Diseñada pensando en freelances y pequeños negocios que necesitan una herramienta sencilla para trabajar con sus clientes.",
@@ -115,19 +115,14 @@ const whoFor = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-slate-100 text-slate-950">
       <HeroSection />
       <FeatureGrid features={resolvedProblems} />
       <ProcessSection steps={steps} />
       <FeaturesSection features={appFeatures} />
-      <section className="bg-white px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <img src="/elementos-graficos/lineas2.svg" className="w-full max-w-xl"/>
-        </div>
-      </section>
-      <DifferenceSection differences={differences} />
-      <WhoForSection items={whoFor} />
       <ContactCta />
+      <WhoForSection items={whoFor} />
+      <DifferenceSection differences={differences} />
     </main>
   );
 }
