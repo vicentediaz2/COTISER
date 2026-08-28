@@ -32,7 +32,7 @@ export default async function RegisterPage({ searchParams }: Props) {
         <FormMessage error={error} />
         <label className="grid gap-2 text-sm font-medium text-slate-700">Nombre<input name="name" required autoComplete="name" className="form-control" placeholder="Tu nombre" /></label>
         <label className="grid gap-2 text-sm font-medium text-slate-700">Correo electrónico<input name="email" type="email" required autoComplete="email" className="form-control" placeholder="tu@empresa.cl" /></label>
-        <div className="grid grid-flow-col gap-5 sm:grid-cols-2">
+        <div className="grid items-start gap-5 sm:grid-cols-2">
           <PasswordField name="password" label="Contraseña" autoComplete="new-password" showRequirements />
           <PasswordField name="password_confirmation" label="Repetir contraseña" autoComplete="new-password" />
         </div>

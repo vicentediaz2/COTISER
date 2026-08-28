@@ -30,8 +30,8 @@ export default function PrivacidadPage() {
         </h2>
         <p className="legal-p">
           Vicente Daniel Diaz Artigas, contacto:{" "}
-          <a href="mailto:contacto@cotiser.is-a.dev" className="legal-link">
-            contacto@cotiser.is-a.dev
+          <a href="mailto:contacto.cotiser@gmail.com" className="legal-link">
+            contacto.cotiser@gmail.com
           </a>
         </p>
       </section>
@@ -176,8 +176,8 @@ export default function PrivacidadPage() {
         </ul>
         <p className="legal-p">
           Para ejercer estos derechos, escribe a{" "}
-          <a href="mailto:contacto@cotiser.is-a.dev" className="legal-link">
-            contacto@cotiser.is-a.dev
+          <a href="mailto:contacto.cotiser@gmail.com" className="legal-link">
+            contacto.cotiser@gmail.com
           </a>
           . Si el dato pertenece a un cliente de un Usuario (no a un Usuario
           registrado directamente), la solicitud debe canalizarse a través del
@@ -243,8 +243,8 @@ export default function PrivacidadPage() {
         </h2>
         <p className="legal-p">
           Para consultas o ejercicio de derechos:{" "}
-          <a href="mailto:contacto@cotiser.is-a.dev" className="legal-link">
-            contacto@cotiser.is-a.dev
+          <a href="mailto:contacto.cotiser@gmail.com" className="legal-link">
+            contacto.cotiser@gmail.com
           </a>
         </p>
       </section>

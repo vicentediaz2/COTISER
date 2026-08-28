@@ -194,7 +194,7 @@ export default function TerminosPage() {
           </li>
           <li>
             La marca, nombre comercial y logo de <span className="font-black">COTISER</span>, que se reservan
-            como identificadores del servicio prestado en cotiser.is-a.dev, independientemente de que el código sea
+            como identificadores del servicio prestado en cotiser.vercel.app/, independientemente de que el código sea
             de fuente abierta. Terceros pueden ejecutar su propia instancia del software bajo AGPLv3, pero no
             están autorizados a usar el nombre &quot;<span className="font-black">COTISER</span>&quot; ni su
             identidad visual para presentar dicha instancia como el servicio oficial.
@@ -222,8 +222,8 @@ export default function TerminosPage() {
         <p className="legal-p">
           El Usuario puede solicitar la eliminación de su cuenta y datos
           asociados en cualquier momento, escribiendo a{" "}
-          <a href="mailto:contacto@cotiser.is-a.dev" className="legal-link">
-            contacto@cotiser.is-a.dev
+          <a href="mailto:contacto.cotiser@gmail.com" className="legal-link">
+            contacto.cotiser@gmail.com
           </a>
           . Nos reservamos el derecho de suspender o eliminar cuentas que
           incumplan gravemente estos Términos, previa notificación cuando sea
@@ -261,8 +261,8 @@ export default function TerminosPage() {
         </h2>
         <p className="legal-p">
           Para consultas sobre estos Términos:{" "}
-          <a href="mailto:contacto@cotiser.is-a.dev" className="legal-link">
-            contacto@cotiser.is-a.dev
+          <a href="mailto:contacto.cotiser@gmail.com" className="legal-link">
+            contacto.cotiser@gmail.com
           </a>
         </p>
       </section>

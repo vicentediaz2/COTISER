@@ -28,7 +28,7 @@
 
 /* SITE */
     Name: Cotiser
-    URL: https://cotiser.is-a.dev
+    URL: https://cotiser.vercel.app/
     Language: Español (Chile)
     Built with: Next.js, Supabase, Tailwind CSS
     License: AGPL-3.0
