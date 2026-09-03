@@ -7,10 +7,10 @@ import { FeaturesSection } from "./_components/FeaturesSection";
 import { HeroSection } from "./_components/HeroSection";
 import { ProcessSection } from "./_components/ProcessSection";
 import { WhoForSection } from "./_components/WhoForSection";
-import { siteUrl } from "@/lib/site";
+import { siteName, siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Crear cotizaciones profesionales gratis | Cotiser",
+  title: "Crear cotizaciones profesionales gratis",
   description:
     "Crea cotizaciones y presupuestos profesionales gratis. Agrega tu logo, clientes, servicios, precios e impuestos, y descarga el documento en PDF o HTML.",
   alternates: { canonical: "/" },
@@ -18,8 +18,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_CL",
     url: "/",
-    siteName: "Cotiser",
-    title: "Cotiser: crea cotizaciones profesionales gratis",
+    siteName,
+    title: "COTISER: crea cotizaciones profesionales gratis",
     description:
       "Crea, organiza y descarga cotizaciones profesionales para ofrecer tus servicios.",
     images: [
@@ -27,13 +27,13 @@ export const metadata: Metadata = {
         url: "/elementos-graficos/hero-cotiser.png",
         width: 5000,
         height: 2626,
-        alt: "Cotiser, herramienta gratuita para crear cotizaciones profesionales",
+        alt: "COTISER, herramienta gratuita para crear cotizaciones profesionales",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cotiser: crea cotizaciones profesionales gratis",
+    title: "COTISER: crea cotizaciones profesionales gratis",
     description:
       "Prepara presupuestos con tu logo, servicios y precios, y descárgalos en PDF o HTML.",
     images: ["/elementos-graficos/hero-cotiser.png"],
@@ -186,8 +186,9 @@ const structuredData = {
     {
       "@type": "WebApplication",
       "@id": `${siteUrl}/#aplicacion`,
-      name: "Cotiser",
+      name: siteName,
       url: siteUrl,
+      publisher: { "@id": `${siteUrl}/#organizacion` },
       applicationCategory: "BusinessApplication",
       operatingSystem: "Web",
       inLanguage: "es",
@@ -220,6 +221,22 @@ const structuredData = {
         name: item.question,
         acceptedAnswer: { "@type": "Answer", text: item.answer },
       })),
+    },
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organizacion`,
+      name: siteName,
+      url: siteUrl,
+      logo: `${siteUrl}/elementos-graficos/isotipo-azul.svg`,
+      sameAs: ["https://github.com/vicentediaz2/COTISER"],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#sitio-web`,
+      name: siteName,
+      url: siteUrl,
+      inLanguage: "es-CL",
+      publisher: { "@id": `${siteUrl}/#organizacion` },
     },
   ],
 };

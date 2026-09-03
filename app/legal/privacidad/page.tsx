@@ -1,3 +1,19 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Política de privacidad",
+  description: "Conoce cómo COTISER trata y protege tus datos personales.",
+  alternates: { canonical: "/legal/privacidad" },
+  openGraph: {
+    type: "website",
+    url: "/legal/privacidad",
+    siteName: "COTISER",
+    title: "Política de privacidad | COTISER",
+    description: "Conoce cómo COTISER trata y protege tus datos personales.",
+  },
+  twitter: { card: "summary", title: "Política de privacidad | COTISER" },
+};
+
 export default function PrivacidadPage() {
   return (
     <>
