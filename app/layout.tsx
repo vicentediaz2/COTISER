@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
 import { ConditionalFooter } from "./_components/ConditionalFooter";
-import { siteUrl } from "@/lib/site";
+import { siteName, siteUrl } from "@/lib/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Cotiser | Cotizaciones profesionales gratis",
-    template: "%s | Cotiser",
+    default: "COTISER | Cotizaciones profesionales gratis",
+    template: "%s | COTISER",
   },
   description:
     "Crea, organiza y descarga cotizaciones profesionales gratis para ofrecer tus servicios.",
-  applicationName: "Cotiser",
+  applicationName: siteName,
   authors: [{ name: "Vicente Díaz" }],
   creator: "Vicente Díaz",
-  publisher: "Cotiser",
+  publisher: siteName,
   category: "business",
   keywords: [
     "crear cotización",
@@ -24,6 +24,29 @@ export const metadata: Metadata = {
     "cotizador online",
     "cotizaciones Chile",
   ],
+  openGraph: {
+    type: "website",
+    locale: "es_CL",
+    siteName,
+    title: "COTISER | Cotizaciones profesionales gratis",
+    description:
+      "Crea, organiza y descarga cotizaciones profesionales gratis para ofrecer tus servicios.",
+    images: [
+      {
+        url: "/elementos-graficos/hero-cotiser.png",
+        width: 5000,
+        height: 2626,
+        alt: "COTISER, herramienta gratuita para crear cotizaciones profesionales",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "COTISER | Cotizaciones profesionales gratis",
+    description:
+      "Crea, organiza y descarga cotizaciones profesionales gratis para ofrecer tus servicios.",
+    images: ["/elementos-graficos/hero-cotiser.png"],
+  },
   formatDetection: {
     email: false,
     address: false,

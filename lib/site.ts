@@ -1,3 +1,3 @@
-export const siteUrl = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://cotiser.vercel.app/"
-).replace(/\/$/, "");
+export const siteUrl = "https://cotiser.vercel.app";
+
+export const siteName = "COTISER";

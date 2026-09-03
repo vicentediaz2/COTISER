@@ -1,3 +1,19 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Términos y condiciones",
+  description: "Términos y condiciones de uso de COTISER.",
+  alternates: { canonical: "/legal/terminos" },
+  openGraph: {
+    type: "website",
+    url: "/legal/terminos",
+    siteName: "COTISER",
+    title: "Términos y condiciones | COTISER",
+    description: "Términos y condiciones de uso de COTISER.",
+  },
+  twitter: { card: "summary", title: "Términos y condiciones | COTISER" },
+};
+
 export default function TerminosPage() {
   return (
     <>

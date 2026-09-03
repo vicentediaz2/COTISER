@@ -1,4 +1,19 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Información legal",
+  description: "Consulta los documentos legales y las políticas de COTISER.",
+  alternates: { canonical: "/legal" },
+  openGraph: {
+    type: "website",
+    url: "/legal",
+    siteName: "COTISER",
+    title: "Información legal | COTISER",
+    description: "Consulta los documentos legales y las políticas de COTISER.",
+  },
+  twitter: { card: "summary", title: "Información legal | COTISER" },
+};
 
 const legalDocs = [
   {

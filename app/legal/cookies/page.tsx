@@ -1,3 +1,19 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Política de cookies",
+  description: "Información sobre las cookies utilizadas por COTISER.",
+  alternates: { canonical: "/legal/cookies" },
+  openGraph: {
+    type: "website",
+    url: "/legal/cookies",
+    siteName: "COTISER",
+    title: "Política de cookies | COTISER",
+    description: "Información sobre las cookies utilizadas por COTISER.",
+  },
+  twitter: { card: "summary", title: "Política de cookies | COTISER" },
+};
+
 export default function CookiesPage() {
   return (
     <>
