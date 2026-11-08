@@ -48,6 +48,7 @@ export async function signUp(formData: FormData) {
   });
 
   if (error) authRedirect("/registro", "error", "No pudimos crear la cuenta. Revisa los datos o intenta más tarde.");
+  console.log(error)
   if (data.session) redirect("/panel");
   authRedirect("/iniciar-sesion", "mensaje", "Cuenta creada. Revisa tu correo para confirmarla.");
 }

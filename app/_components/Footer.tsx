@@ -15,6 +15,12 @@ export function Footer() {
             <p>&copy; {currentYear} <span className="font-black text-white">Cotiser</span>. Código abierto bajo AGPLv3.</p>
             <div className="flex flex-wrap gap-4">
               <Link
+                href="/blog"
+                className="inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium text-white transition hover:text-blue-50"
+              >
+                Blog
+              </Link>
+              <Link
                 href="/legal/terminos"
                 className="inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium text-white transition hover:text-blue-50"
               >
