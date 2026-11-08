@@ -10,7 +10,7 @@ export type ViewQuotation = {
   taxRate?: number | null;
   discount?: number | null;
   notes?: string | null;
-  items: { description: string; quantity: number; unitPrice: number; discount?: number | null }[];
+  items: { description: string; serviceDescription?: string | null; quantity: number; unitPrice: number; discount?: number | null }[];
 };
 
 const labels: Record<string, string> = { pendiente: "Pendiente", enviada: "Enviada", aprobada: "Aprobada", rechazada: "Rechazada", vencida: "Vencida" };
@@ -69,7 +69,10 @@ export function QuotationView({ quotation, onClose }: { quotation: ViewQuotation
                   const lineTotal = Math.round(item.quantity * item.unitPrice * (1 - (item.discount ?? 0) / 100));
                   return (
                     <tr key={index} className="border-b border-blue-50 last:border-0">
-                      <td className="px-4 py-3 font-medium text-slate-900">{item.description}</td>
+                      <td className="px-4 py-3">
+                        <p className="font-medium text-slate-900">{item.description}</p>
+                        {item.serviceDescription?.trim() && <p className="mt-1 text-xs text-slate-500">{item.serviceDescription}</p>}
+                      </td>
                       <td className="px-4 py-3 text-right text-slate-700">{item.quantity}</td>
                       <td className="px-4 py-3 text-right text-slate-700">{format.format(item.unitPrice)}</td>
                       <td className="px-4 py-3 text-right text-slate-700">{item.discount ? `${item.discount}%` : "—"}</td>

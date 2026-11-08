@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ConditionalFooter } from "./_components/ConditionalFooter";
-import { siteName, siteUrl } from "@/lib/site";
+import { defaultSocialImage, siteDescription, siteLocale, siteName, siteUrl } from "@/lib/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -9,8 +9,7 @@ export const metadata: Metadata = {
     default: "COTISER | Cotizaciones profesionales gratis",
     template: "%s | COTISER",
   },
-  description:
-    "Crea, organiza y descarga cotizaciones profesionales gratis para ofrecer tus servicios.",
+  description: siteDescription,
   applicationName: siteName,
   authors: [{ name: "Vicente Díaz" }],
   creator: "Vicente Díaz",
@@ -26,7 +25,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     type: "website",
-    locale: "es_CL",
+    locale: siteLocale,
     siteName,
     title: "COTISER | Cotizaciones profesionales gratis",
     description:
@@ -45,7 +44,7 @@ export const metadata: Metadata = {
     title: "COTISER | Cotizaciones profesionales gratis",
     description:
       "Crea, organiza y descarga cotizaciones profesionales gratis para ofrecer tus servicios.",
-    images: ["/elementos-graficos/hero-cotiser.png"],
+    images: [defaultSocialImage],
   },
   formatDetection: {
     email: false,

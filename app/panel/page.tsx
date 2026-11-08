@@ -91,6 +91,7 @@ export default async function QuotationsPage({ searchParams }: Props) {
     items: (quotation.cotizacionxservicio ?? [])
       .map((item) => ({
         description: relatedOne(item.servicio)?.nombre ?? "",
+        serviceDescription: relatedOne(item.servicio)?.descripcion ?? null,
         quantity: item.cantidad,
         unitPrice: item.precio_unitario,
         discount: item.descuento,

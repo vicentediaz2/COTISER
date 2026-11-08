@@ -1,9 +1,16 @@
 import type { MetadataRoute } from "next";
+import { posts } from "@/app/blog/_data/posts";
 import { siteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages = [
     { path: "", priority: 1, changeFrequency: "weekly" as const },
+    { path: "/blog", priority: 0.7, changeFrequency: "weekly" as const },
+    ...posts.map((post) => ({
+      path: `/blog/${post.slug}`,
+      priority: 0.6,
+      changeFrequency: "monthly" as const,
+    })),
     { path: "/legal", priority: 0.4, changeFrequency: "monthly" as const },
     {
       path: "/legal/terminos",
@@ -24,6 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return pages.map((page) => ({
     url: `${siteUrl}${page.path}`,
+    lastModified: new Date(),
     changeFrequency: page.changeFrequency,
     priority: page.priority,
   }));
