@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
   totalHead: { width: "18%", textAlign: "right", fontFamily: "Helvetica-Bold", fontSize: 8, color: "#64748b", textTransform: "uppercase" },
   tableRow: { flexDirection: "row", borderBottomWidth: 1, borderBottomColor: "#f1f5f9", paddingVertical: 8 },
   serviceCell: { width: "44%" },
+  serviceDescription: { fontSize: 8, color: "#64748b", marginTop: 2 },
   qtyCell: { width: "16%", textAlign: "right" },
   priceCell: { width: "22%", textAlign: "right" },
   totalCell: { width: "18%", textAlign: "right", fontFamily: "Helvetica-Bold" },
@@ -106,6 +107,7 @@ export function QuotationPdfDocument({ quotation, organization }: { quotation: H
               <View key={index} style={styles.tableRow}>
                 <View style={styles.serviceCell}>
                   <Text>{item.description}</Text>
+                  {value(item.serviceDescription) && <Text style={styles.serviceDescription}>{value(item.serviceDescription)}</Text>}
                 </View>
                 <Text style={styles.qtyCell}>{qty}</Text>
                 <Text style={styles.priceCell}>{money.format(unit)}</Text>

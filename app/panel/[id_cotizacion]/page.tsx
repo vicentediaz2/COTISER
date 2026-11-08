@@ -69,7 +69,7 @@ export default async function HtmlQuotationPage({ params }: Props) {
     clientAddress: client?.direccion,
     clientTaxId: client?.identificador_fiscal,
     notes: quotation.observacion,
-    items: (quotation.cotizacionxservicio ?? []).map((item) => ({ description: one(item.servicio)?.nombre ?? "", quantity: Number(item.cantidad), unitPrice: Number(item.precio_unitario), discount: item.descuento })).filter((item: HtmlQuotation["items"][number]) => item.description),
+    items: (quotation.cotizacionxservicio ?? []).map((item) => ({ description: one(item.servicio)?.nombre ?? "", serviceDescription: one(item.servicio)?.descripcion ?? null, quantity: Number(item.cantidad), unitPrice: Number(item.precio_unitario), discount: item.descuento })).filter((item: HtmlQuotation["items"][number]) => item.description),
   };
 
   return <QuotationHtmlDocument quotation={htmlQuotation} organization={organization} fullPage />;

@@ -73,6 +73,7 @@ export function QuotationHtmlDocument({ quotation, organization, fullPage = fals
                   <tr key={i} className="border-b border-slate-100">
                     <td className="py-3">
                       <p className="font-medium">{item.description}</p>
+                      {value(item.serviceDescription) && <p className="mt-1 text-xs text-slate-500">{value(item.serviceDescription)}</p>}
                     </td>
                     <td className="py-3 text-right">{qty}</td>
                     <td className="py-3 text-right">{money.format(unit)}</td>

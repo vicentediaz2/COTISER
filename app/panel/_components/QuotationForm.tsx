@@ -5,7 +5,7 @@ import { createQuotation, editQuotation } from "../actions";
 
 export type CustomerOption = { id: string; name: string };
 export type ServiceOption = { id: string; name: string; price: number };
-export type QuotationItem = { description: string; quantity: number; unitPrice: number; discount?: number | null };
+export type QuotationItem = { description: string; serviceDescription?: string | null; quantity: number; unitPrice: number; discount?: number | null };
 export type EditableQuotation = { id: string; clientName: string; clientAddress?: string | null; clientTaxId?: string | null; notes?: string | null; discount?: number | null; taxRate?: number | null; items: QuotationItem[] };
 type Item = QuotationItem & { id: number };
 
